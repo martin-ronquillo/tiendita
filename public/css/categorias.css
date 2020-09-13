@@ -1,0 +1,53 @@
+.categorias {
+    block-size: auto;
+}
+
+.btn-link {
+    display: flex;
+    background-color: transparent;
+    border: transparent;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.btn-card {
+    height: 13rem;
+    width: 12rem;
+    margin-left: -30px;
+    background-color: white;
+    border: solid 1px rgba(128, 128, 128, 0.356);
+}
+
+.btn-card:hover {
+    background-color: rgb(57, 57, 255);
+}
+
+.btn-card:hover i {
+    color: #fff;
+}
+
+.card {
+    height: 13rem;
+    margin-left: -30px;
+}
+
+.card:hover {
+    background-color: rgb(57, 57, 255);
+}
+
+.card:hover i {
+    color: #fff;
+}
+
+.link-change {
+    color: #000;
+    text-decoration: none;
+}
+
+.link-change:hover {
+    color: #fff;
+    text-decoration: none;
+}

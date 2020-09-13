@@ -1,0 +1,95 @@
+.list-group-item {
+    border: white;
+}
+
+.img-content {
+    width: auto;
+    max-height: 170px;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.btn-icon {
+    visibility: hidden;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    z-index: 0;
+    color: rgb(0, 153, 255);
+}
+
+.btn-icon:hover {
+    color: rgb(25, 0, 255);
+}
+
+.list-group-item:hover .btn-icon {
+    visibility: visible;
+}
+
+a:link {
+    color: black;
+    text-decoration: none;
+}
+
+
+/* visited link */
+
+a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+
+/* mouse over link */
+
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+
+/* selected link */
+
+a:active {
+    color: black;
+    text-decoration: none;
+}
+
+select {
+    border: none;
+    background-color: rgba(128, 128, 128, 0);
+}
+
+.none-a:link {
+    color: black;
+    text-decoration: none;
+}
+
+
+/* visited link */
+
+.none-a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+
+/* mouse over link */
+
+.none-a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+
+/* selected link */
+
+.none-a:active {
+    color: black;
+    text-decoration: none;
+}

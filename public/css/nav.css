@@ -1,0 +1,661 @@
+.nav {
+    background-color: #FFF463;
+}
+
+.auto-complete li {
+    position: absolute;
+    z-index: 3;
+    width: 600px;
+    margin-top: 14px;
+    border: none;
+    background-color: white;
+    text-decoration: none;
+    list-style: none;
+}
+
+@media screen and (min-width: 1201px) and (max-width: 8096px) {
+    .custom-logo-link {
+        background-image: url('../images/logo_mercadolibre_mod2.png');
+        width: 152px;
+        height: 46px;
+        margin-left: -64px;
+    }
+    .custom-logo-link img {
+        display: none;
+    }
+    .site-branding {
+        width: 100%;
+    }
+    .btnMenu {
+        display: none;
+    }
+    .container-3 {
+        width: 700px;
+        vertical-align: middle;
+        white-space: nowrap;
+        position: relative;
+        width: relative;
+    }
+    .container-3 input#search {
+        width: 600px;
+        height: 38px;
+        margin-left: 40px;
+        background: #ffffff;
+        border: none;
+        font-size: 10pt;
+        float: left;
+        color: #aaaaaa;
+        padding-left: 20px;
+        color: rgb(0, 0, 0);
+    }
+    .container-3 input#search::-webkit-input-placeholder {
+        color: #c3c7c9;
+    }
+    .container-3 input#search:-moz-placeholder {
+        /* Firefox 18- */
+        color: #c3c7c9;
+    }
+    .container-3 input#search::-moz-placeholder {
+        /* Firefox 19+ */
+        color: #c3c7c9;
+    }
+    .container-3 input#search:-ms-input-placeholder {
+        color: #c3c7c9;
+    }
+    .container-3 .icon {
+        position: absolute;
+        top: 50%;
+        margin-left: -33px;
+        margin-top: 6px;
+        z-index: 1;
+        color: #666a6d75;
+        -webkit-transition: all .55s ease;
+        -moz-transition: all .55s ease;
+        -ms-transition: all .55s ease;
+        -o-transition: all .55s ease;
+        transition: all .55s ease;
+    }
+    .container-3 .icon button {
+        border: none;
+        background: #fff;
+        color: #666a6d75;
+    }
+    .vl {
+        border-left: 1px solid rgba(167, 167, 167, 0.363);
+        height: 25px;
+        position: absolute;
+        left: 50%;
+        margin-left: 250px;
+        margin-top: 6px;
+        top: 0;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+    .custom-logo-link {
+        background-image: url('../images/logo_mercadolibre_mod2.png');
+        width: 152px;
+        height: 46px;
+    }
+    .custom-logo-link img {
+        display: none;
+    }
+    .site-branding {
+        width: 100%;
+    }
+    .hva {
+        margin-left: 130px;
+    }
+    .btnMenu {
+        display: none;
+    }
+    .container-3 {
+        width: 580px;
+        vertical-align: middle;
+        white-space: nowrap;
+        position: relative;
+        width: relative;
+    }
+    .container-3 input#search {
+        width: 500px;
+        height: 38px;
+        margin-left: 80px;
+        background: #ffffff;
+        border: none;
+        font-size: 10pt;
+        float: left;
+        color: #aaaaaa;
+        padding-left: 20px;
+        color: rgb(0, 0, 0);
+    }
+    .container-3 input#search::-webkit-input-placeholder {
+        color: #c3c7c9;
+    }
+    .container-3 input#search:-moz-placeholder {
+        /* Firefox 18- */
+        color: #c3c7c9;
+    }
+    .container-3 input#search::-moz-placeholder {
+        /* Firefox 19+ */
+        color: #c3c7c9;
+    }
+    .container-3 input#search:-ms-input-placeholder {
+        color: #c3c7c9;
+    }
+    .container-3 .icon {
+        position: absolute;
+        top: 50%;
+        margin-left: -33px;
+        margin-top: 6px;
+        z-index: 1;
+        color: #666a6d75;
+        -webkit-transition: all .55s ease;
+        -moz-transition: all .55s ease;
+        -ms-transition: all .55s ease;
+        -o-transition: all .55s ease;
+        transition: all .55s ease;
+    }
+    .container-3 .icon button {
+        border: none;
+        background: #fff;
+        color: #666a6d75;
+    }
+    .vl {
+        border-left: 1px solid rgba(167, 167, 167, 0.363);
+        height: 25px;
+        position: absolute;
+        left: 50%;
+        margin-left: 245px;
+        margin-top: 6px;
+        top: 0;
+    }
+}
+
+@media screen and (min-width: 901px) and (max-width: 991px) {
+    .filtros {
+        display: none;
+    }
+    .custom-logo-link {
+        background-image: url('../images/logo_mercadolibre_mod2_peq.png');
+        width: 53px;
+        height: 41px;
+        margin-left: -30px;
+    }
+    .custom-logo-link img {
+        display: none;
+    }
+    .site-branding {
+        width: 100%;
+    }
+    .menu {
+        display: none;
+    }
+    .btnMenu {
+        margin-top: 0px;
+        margin-left: -60px;
+        border: none;
+        background-color: rgba(139, 69, 19, 0);
+    }
+    .container-3 {
+        width: 400px;
+        margin-left: 15px;
+        vertical-align: middle;
+        white-space: nowrap;
+        position: relative;
+        width: relative;
+    }
+    .container-3 input#search {
+        width: 500px;
+        height: 38px;
+        background: #ffffff;
+        border: none;
+        font-size: 10pt;
+        float: left;
+        color: #aaaaaa;
+        padding-left: 20px;
+        color: rgb(0, 0, 0);
+    }
+    .container-3 input#search::-webkit-input-placeholder {
+        color: #c3c7c9;
+    }
+    .container-3 input#search:-moz-placeholder {
+        /* Firefox 18- */
+        color: #c3c7c9;
+    }
+    .container-3 input#search::-moz-placeholder {
+        /* Firefox 19+ */
+        color: #c3c7c9;
+    }
+    .container-3 input#search:-ms-input-placeholder {
+        color: #c3c7c9;
+    }
+    .container-3 .icon {
+        position: absolute;
+        top: 50%;
+        margin-left: -33px;
+        margin-top: 6px;
+        z-index: 1;
+        color: #666a6d75;
+        -webkit-transition: all .55s ease;
+        -moz-transition: all .55s ease;
+        -ms-transition: all .55s ease;
+        -o-transition: all .55s ease;
+        transition: all .55s ease;
+    }
+    .container-3 .icon button {
+        border: none;
+        background: #fff;
+        color: #666a6d75;
+    }
+    .vl {
+        border-left: 1px solid rgba(167, 167, 167, 0.363);
+        height: 25px;
+        position: absolute;
+        left: 50%;
+        margin-left: 260px;
+        margin-top: 6px;
+        top: 0;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 900px) {
+    .filtros {
+        display: none;
+    }
+    .custom-logo-link {
+        background-image: url('../images/logo_mercadolibre_mod2_peq.png');
+        width: 53px;
+        height: 41px;
+        margin-left: -20px;
+    }
+    .custom-logo-link img {
+        display: none;
+    }
+    .site-branding {
+        width: 100%;
+    }
+    .menu {
+        display: none;
+    }
+    .btnMenu {
+        margin-top: 0px;
+        margin-left: -80px;
+    }
+    .container-3 {
+        width: 450px;
+        margin-left: 45px;
+        vertical-align: middle;
+        white-space: nowrap;
+        position: relative;
+        width: relative;
+    }
+    .container-3 input#search {
+        width: 400px;
+        height: 38px;
+        background: #ffffff;
+        border: none;
+        font-size: 10pt;
+        float: left;
+        color: #aaaaaa;
+        padding-left: 20px;
+        color: rgb(0, 0, 0);
+    }
+    .container-3 input#search::-webkit-input-placeholder {
+        color: #c3c7c9;
+    }
+    .container-3 input#search:-moz-placeholder {
+        /* Firefox 18- */
+        color: #c3c7c9;
+    }
+    .container-3 input#search::-moz-placeholder {
+        /* Firefox 19+ */
+        color: #c3c7c9;
+    }
+    .container-3 input#search:-ms-input-placeholder {
+        color: #c3c7c9;
+    }
+    .container-3 .icon {
+        position: absolute;
+        top: 50%;
+        margin-left: -33px;
+        margin-top: 6px;
+        z-index: 1;
+        color: #666a6d75;
+        -webkit-transition: all .55s ease;
+        -moz-transition: all .55s ease;
+        -ms-transition: all .55s ease;
+        -o-transition: all .55s ease;
+        transition: all .55s ease;
+    }
+    .container-3 .icon button {
+        border: none;
+        background: #fff;
+        color: #666a6d75;
+    }
+    .vl {
+        border-left: 1px solid rgba(167, 167, 167, 0.363);
+        height: 25px;
+        position: absolute;
+        left: 50%;
+        margin-left: 140px;
+        margin-top: 6px;
+        top: 0;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 767px) {
+    .filtros {
+        display: none;
+    }
+    .custom-logo-link {
+        background-image: url('../images/logo_mercadolibre_mod2_peq.png');
+        width: 53px;
+        height: 41px;
+        margin-left: 0px;
+    }
+    .custom-logo-link img {
+        display: none;
+    }
+    .site-branding {
+        width: 100%;
+    }
+    .menu {
+        display: none;
+    }
+    .btnMenu {
+        margin-top: 0px;
+        margin-left: -70px;
+    }
+    .container-3 {
+        width: 380px;
+        vertical-align: middle;
+        white-space: nowrap;
+        position: relative;
+        width: relative;
+    }
+    .container-3 input#search {
+        width: 310px;
+        height: 38px;
+        background: #ffffff;
+        border: none;
+        font-size: 10pt;
+        float: left;
+        color: #aaaaaa;
+        padding-left: 20px;
+        color: rgb(0, 0, 0);
+    }
+    .container-3 input#search::-webkit-input-placeholder {
+        color: #c3c7c9;
+    }
+    .container-3 input#search:-moz-placeholder {
+        /* Firefox 18- */
+        color: #c3c7c9;
+    }
+    .container-3 input#search::-moz-placeholder {
+        /* Firefox 19+ */
+        color: #c3c7c9;
+    }
+    .container-3 input#search:-ms-input-placeholder {
+        color: #c3c7c9;
+    }
+    .container-3 .icon {
+        position: absolute;
+        top: 50%;
+        margin-left: -33px;
+        margin-top: 6px;
+        z-index: 1;
+        color: #666a6d75;
+        -webkit-transition: all .55s ease;
+        -moz-transition: all .55s ease;
+        -ms-transition: all .55s ease;
+        -o-transition: all .55s ease;
+        transition: all .55s ease;
+    }
+    .container-3 .icon button {
+        border: none;
+        background: #fff;
+        color: #666a6d75;
+    }
+    .vl {
+        border-left: 1px solid rgba(167, 167, 167, 0.363);
+        height: 25px;
+        position: absolute;
+        left: 50%;
+        margin-left: 80px;
+        margin-top: 6px;
+        top: 0;
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width: 599px) {
+    .filtros {
+        display: none;
+    }
+    .custom-logo-link {
+        background-image: url('../images/logo_mercadolibre_mod2_peq.png');
+        width: 53px;
+        height: 41px;
+        margin-left: 0px;
+    }
+    .custom-logo-link img {
+        display: none;
+    }
+    .site-branding {
+        width: 100%;
+    }
+    .menu {
+        display: none;
+    }
+    .btnMenu {
+        margin-top: 0px;
+        margin-left: -85px;
+    }
+    .container-3 {
+        width: 280px;
+        vertical-align: middle;
+        white-space: nowrap;
+        position: relative;
+        width: relative;
+    }
+    .container-3 input#search {
+        width: 270px;
+        height: 38px;
+        margin-left: -50px;
+        background: #ffffff;
+        border: none;
+        font-size: 9pt;
+        float: left;
+        color: #aaaaaa;
+        padding-left: 20px;
+        color: rgb(0, 0, 0);
+    }
+    .container-3 input#search::-webkit-input-placeholder {
+        color: #c3c7c9;
+    }
+    .container-3 input#search:-moz-placeholder {
+        /* Firefox 18- */
+        color: #c3c7c9;
+    }
+    .container-3 input#search::-moz-placeholder {
+        /* Firefox 19+ */
+        color: #c3c7c9;
+    }
+    .container-3 input#search:-ms-input-placeholder {
+        color: #c3c7c9;
+    }
+    .container-3 .icon {
+        position: absolute;
+        top: 50%;
+        margin-left: -33px;
+        margin-top: 6px;
+        z-index: 1;
+        color: #666a6d75;
+        -webkit-transition: all .55s ease;
+        -moz-transition: all .55s ease;
+        -ms-transition: all .55s ease;
+        -o-transition: all .55s ease;
+        transition: all .55s ease;
+    }
+    .container-3 .icon button {
+        border: none;
+        background: #fff;
+        color: #666a6d75;
+    }
+    .vl {
+        border-left: 1px solid rgba(167, 167, 167, 0.363);
+        height: 25px;
+        position: absolute;
+        left: 50%;
+        margin-left: 42px;
+        margin-top: 6px;
+        top: 0;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+    .filtros {
+        display: none;
+    }
+    .custom-logo-link {
+        background-image: url('../images/logo_mercadolibre_mod2_peq.png');
+        width: 53px;
+        height: 41px;
+        margin-left: -10px;
+    }
+    .custom-logo-link img {
+        display: none;
+    }
+    .site-branding {
+        width: 100%;
+    }
+    .menu {
+        display: none;
+    }
+    .btnMenu {
+        margin-top: 0px;
+        margin-left: -70px;
+    }
+    .container-3 {
+        width: 130px;
+        margin-left: -120px;
+        vertical-align: middle;
+        white-space: nowrap;
+        position: relative;
+        width: relative;
+    }
+    .container-3 input#search {
+        width: 130px;
+        height: 38px;
+        background: #ffffff;
+        border: none;
+        font-size: 7pt;
+        float: left;
+        color: #aaaaaa;
+        padding-left: 20px;
+        color: rgb(0, 0, 0);
+    }
+    .container-3 input#search::-webkit-input-placeholder {
+        color: #c3c7c9;
+    }
+    .container-3 input#search:-moz-placeholder {
+        /* Firefox 18- */
+        color: #c3c7c9;
+    }
+    .container-3 input#search::-moz-placeholder {
+        /* Firefox 19+ */
+        color: #c3c7c9;
+    }
+    .container-3 input#search:-ms-input-placeholder {
+        color: #c3c7c9;
+    }
+    .container-3 .icon {
+        position: absolute;
+        top: 50%;
+        margin-left: 5px;
+        margin-top: 6px;
+        z-index: 1;
+        color: #666a6d75;
+        -webkit-transition: all .55s ease;
+        -moz-transition: all .55s ease;
+        -ms-transition: all .55s ease;
+        -o-transition: all .55s ease;
+        transition: all .55s ease;
+    }
+    .container-3 .icon button {
+        border: none;
+        background: rgba(255, 255, 255, 0);
+        color: #666a6d75;
+    }
+    .vl {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 319px) {
+    .filtros {
+        display: none;
+    }
+    .custom-logo-link {
+        background-image: url('../assets/logo_mercadolibre_mod2_peq.png');
+        width: 157px;
+        height: 59px;
+        margin-top: 12px;
+        margin-left: -10px;
+    }
+    .custom-logo-link img {
+        display: none;
+    }
+    .site-branding {
+        width: 100%;
+    }
+    .menu {
+        display: none;
+    }
+    .container-3 {
+        width: 190px;
+        margin-top: -10px;
+        vertical-align: middle;
+        white-space: nowrap;
+        position: relative;
+        width: relative;
+    }
+    .container-3 input#search {
+        width: 190px;
+        height: 38px;
+        margin-left: -90px;
+        background: #ffffff;
+        border: none;
+        font-size: 6pt;
+        float: left;
+        color: #aaaaaa;
+        padding-left: 10px;
+        color: rgb(0, 0, 0);
+    }
+    .container-3 input#search::-webkit-input-placeholder {
+        color: #c3c7c9;
+    }
+    .container-3 input#search:-moz-placeholder {
+        /* Firefox 18- */
+        color: #c3c7c9;
+    }
+    .container-3 input#search::-moz-placeholder {
+        /* Firefox 19+ */
+        color: #c3c7c9;
+    }
+    .container-3 input#search:-ms-input-placeholder {
+        color: #c3c7c9;
+    }
+    .container-3 .icon {
+        position: absolute;
+        top: 50%;
+        margin-left: -10px;
+        margin-top: 5px;
+        z-index: 1;
+        color: #666a6d75;
+        -webkit-transition: all .55s ease;
+        -moz-transition: all .55s ease;
+        -ms-transition: all .55s ease;
+        -o-transition: all .55s ease;
+        transition: all .55s ease;
+    }
+}
