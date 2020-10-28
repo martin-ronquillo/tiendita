@@ -27,6 +27,11 @@ img {
     color: rgb(25, 0, 255);
 }
 
+.link {
+    border: none;
+    background-color: transparent;
+}
+
 .list-group-item:hover .btn-icon {
     visibility: visible;
 }

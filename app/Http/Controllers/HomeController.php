@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Categoria;
 use App\Producto;
+use App\Provincia;
+use phpDocumentor\Reflection\Types\Null_;
 
 class HomeController extends Controller
 {
@@ -33,11 +35,33 @@ class HomeController extends Controller
     public function search(Request $request)
     {
         $busqueda = $request->search;
+
+        return view('searchResults', compact('busqueda'));
+    }
+
+    public function searchCategorie(Request $request)
+    {
+        $busqueda = $request->search;
+
+        return view('categoriesResults', compact('busqueda'));
+    }
+
+    /*public function filter(Request $request)
+    {
+        $busqueda = $request->search;
+        $busquedaInfo = $request->search;
         $results = Producto::where('name', 'LIKE', '%'.$request->search.'%')
                             ->orWhere('caracteristicas', 'LIKE', '%'.$request->search.'%')
                             ->orWhere('categoria_id', $request->search)
                             ->get();
 
-        return view('searchResults', compact('results', 'busqueda'));
-    }
+        foreach ($results as $item) {
+            if ($item->ventas->first()->users->provincias->name === $request->provincia) {
+                $filtroProvincia = $item->ventas->first()->users->provincias->name;
+                return view('searchResultsFilter', compact('results', 'busqueda', 'filtroProvincia', 'busquedaInfo'));
+            }
+        }
+
+        return view('searchResultsFilter', compact('results', 'busqueda', 'busquedaInfo'));
+    }*/
 }

@@ -68,7 +68,7 @@
                                 </div>
 
                                 {{--Preguntas--}}
-                                @livewire('preguntar-component', ['product' => $producto->id ])
+                                @livewire('preguntar-component', ['product' => $producto->id])
                             </div>
                             
                         </li>
@@ -84,8 +84,19 @@
                     {{--Primera seccion--}}
                         <li class="lista-item">
                             <div class="row">
-                                <div class="ml-3 mr-1">
-                                    <p class="mt-1 mb-2 text-secondary text-capitalize">{{ $producto->estado }}</p>
+                                <div class="ml-3 mr-1 w-100">
+                                    <div class="row">
+                                        <div class="col-10">
+                                            <p class="mt-1 mb-2 text-secondary text-capitalize">
+                                                {{ $producto->estado }}
+                                            </p>
+                                        </div>
+                                        <div class="col-2">
+                                            <i style="margin-right: auto">
+                                                @livewire('favoritos-component', ['identificador' => $producto->id])
+                                            </i>
+                                        </div>
+                                    </div>
                                     <h3 class="text-calibri text-capitalize"><b>{{ $producto->name }}</b></h3>
                                     <br>
                                     <h1 class="display-5 text-price">U$S {{ $producto->precio }}</h1>

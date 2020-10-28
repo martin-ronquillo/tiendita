@@ -24,7 +24,7 @@
                 <p>
                     <i class="fas fa-comment-dots mr-2"></i>
                     <em class="text-secondary">{{ @$item->respuestas->respuesta }}.
-                        &nbsp;{{ @$item->respuestas->created_at }}
+                        &nbsp;<i style="font-size: 11px">{{ @$item->respuestas->created_at }}</i>
                     </em>
                     <a href="#">
                         <i class="text-primary report">Denunciar</i>

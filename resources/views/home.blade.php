@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="container">
-    <form name="searchForm" action="{{ route('search') }}" method="POST">
+    <form name="searchForm" action="{{ route('search-categorie') }}" method="GET">
         @csrf
         <div class="row">
 
@@ -49,9 +49,6 @@
 @push('scripts')
     
 <script>
-    function enviar_formulario(){
-       document.searchForm.submit();
-    }
 </script>
 
 @endpush

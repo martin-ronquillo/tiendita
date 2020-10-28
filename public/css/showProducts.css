@@ -22,6 +22,25 @@
     border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
+.btn-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    z-index: 0;
+    color: rgb(0, 153, 255);
+}
+
+.btn-icon:hover {
+    color: rgb(25, 0, 255);
+}
+
+.btn-link {
+    border: transparent;
+    background-color: transparent;
+}
+
 .reputation-thermometer {
     list-style: none;
     display: flex;

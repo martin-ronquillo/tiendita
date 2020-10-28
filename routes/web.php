@@ -18,7 +18,9 @@ Route::get('/', 'HomeController@index')->name('home');
 
 route::get('search', 'HomeController@search')->name('search');
 
-route::post('search', 'HomeController@search')->name('search-categories');
+route::get('search-categorie', 'HomeController@searchCategorie')->name('search-categorie');
+
+/*route::get('filter', 'HomeController@filter')->name('filter');*/
 
 Route::get('productos/{producto}', 'ProductoController@show')->name('productos.show');
 
