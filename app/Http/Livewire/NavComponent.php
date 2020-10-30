@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Auth;
 
 class NavComponent extends Component
 {
+    protected $listeners = [
+        'nav:update' => '$refresh',
+    ];
+
     public function render()
     {
         if (Auth::check()) {

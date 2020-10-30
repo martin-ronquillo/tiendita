@@ -11,7 +11,7 @@
     }
 
 @endphp
-
+@section('title', $producto->name)
 @section('styles')
     <link rel="stylesheet" href="{{ asset('css/showProducts.css') }}">
 @endsection

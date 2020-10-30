@@ -4,6 +4,7 @@
             && @$favoritos->first()->producto_id === @$identificador)
             <button 
             class="btn-icon ml-auto"
+            id="fav"
             wire:click="quitar({{ $favoritos->first()->id }})"
             >
                 <i class="fas fa-heart"></i>
@@ -11,6 +12,7 @@
         @else
             <button 
             class="btn-icon ml-auto"
+            id="fav"
             wire:click="agregar"
             >
                 <i class="far fa-heart"></i>

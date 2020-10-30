@@ -36,10 +36,14 @@ class FavoritosComponent extends Component
             'producto_id' => $this->identificador,
             'user_id' => Auth::user()->id,
         ]);
+
+        $this->emit('nav:update');
     }
 
     public function quitar($id)
     {
         Favorito::destroy($id);
+
+        $this->emit('nav:update');
     }
 }

@@ -32,9 +32,7 @@ class FiltroComponent extends Component
 
         $results = $results->get();
         
-        /*if($this->condicion){
-            dd(DB::getQueryLog());
-        }*/
+        $this->emit('nav:update');
 
         return view('livewire.filtro-component',[
             'results' => $results,

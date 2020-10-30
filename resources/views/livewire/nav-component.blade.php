@@ -1,22 +1,57 @@
+@php
+    $i = 0;
+
+    foreach ($favoritos as $key) {
+        $i += 1;
+    }
+@endphp
+
+{{--<div wire:poll.0.1s> Esto refresca el componente cada 0.1s--}}
 <div>
 
-    @if (Auth::user() && empty(!$favoritos))
+    <b class="ml-3">Favoritos</b>
+    <div class="divider mt-2 mb-2"></div>
+    @if (Auth::user() && $i > 0)
         @foreach ($favoritos as $item)
             
             <a class="dropdown-item" href="{{ route('logout') }}"
-            onclick="event.preventDefault();
-            document.getElementById('logout-form').submit();"
+                style="width: 410px;"
             >
-                {{ $item->id }}
+                <div class="row">
+                    <div class="col-3 center img-content">
+                        <img class="ml-3" src="{{ asset('images/1.png') }}" alt="{{ $item->name }}">
+                    </div>
+                    <div class="col-9">
+                        @if (strlen($item->productos->name) <= 44)
+                            {{ $item->productos->name }}
+                        @else
+                            @php
+                                echo substr_replace($item->productos->name, '...', 40);
+                            @endphp
+                        @endif
+                        <br>
+                        <h5>U$S {{ $item->productos->precio }}</h5>
+                    </div>
+                </div>
             </a>
 
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-            </form>
+            @if ($loop->iteration > 0)
+                <hr/>            
+            @endif
+
+            @if ($loop->iteration >= 4)
+                <a href="" class="link text-blue" style="color: rgba(0, 81, 255, 0.89);">
+                    <b class="ml-3 mb-2 center">Ver todos los favoritos</b>
+                </a>
+
+                @break
+            @endif
 
         @endforeach
     @else
-        Parece que aun no hay nada por aqui!
+        <p class="dropdown-item text-center" style="width: 410px;">
+            Parece que aun no hay nada por aqui!
+        </p>
     @endif
     
 </div>

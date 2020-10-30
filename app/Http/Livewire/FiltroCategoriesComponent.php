@@ -27,6 +27,8 @@ class FiltroCategoriesComponent extends Component
 
         $results = $results->get();
 
+        $this->emit('nav:update');
+
         return view('livewire.filtro-component',[
             'results' => $results,
             'results2' => Producto::where('categoria_id', $this->busqueda)
