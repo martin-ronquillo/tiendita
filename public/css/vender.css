@@ -1,0 +1,55 @@
+.steps-input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.condition-list {
+    display: flex;
+    height: 70px;
+    text-align: justify;
+    align-items: center;
+    font-size: 18px;
+}
+
+.condition-list:hover {
+    background-color: rgba(161, 161, 161, 0.164);
+}
+
+.radio-steps {
+    visibility: hidden;
+    margin-left: -12px;
+}
+
+.info {
+    background-color: rgba(190, 190, 190, 0.185);
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 4px solid rgba(83, 160, 248, 0.822);
+}
+
+.boton {
+    width: 18px;
+    height: 19px;
+    background-color: transparent;
+    border: solid 1px rgb(0, 132, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 5px;
+    cursor: pointer;
+    border-radius: 50%;
+    color: rgb(0, 132, 255);
+}
+
+.boton:hover {
+    opacity: 0.25;
+    -moz-opacity: .25;
+    filter: alpha (opacity=25);
+}
+
+.boton a {
+    color: rgb(136, 132, 132);
+    text-decoration: none;
+    padding: 5px 5px 5px 0;
+}

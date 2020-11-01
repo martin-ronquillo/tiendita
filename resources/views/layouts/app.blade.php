@@ -24,7 +24,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
     @yield('styles')
     @livewireStyles
@@ -76,7 +76,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item text-dark" href="{{ route('logout') }}">
+                                    <a class="dropdown-item text-dark" href="{{ route('ventas.create') }}">
                                         Vender
                                     </a>
                                     <a class="dropdown-item text-dark" href="{{ route('logout') }}"
@@ -157,6 +157,15 @@
         </main>
 
     </div>
+    
+    {{--jquery--}}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
     @stack('scripts')
     @livewireScripts
 </body>

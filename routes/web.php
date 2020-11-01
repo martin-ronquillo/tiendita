@@ -28,4 +28,7 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function(){
 
+    //Vender
+    Route::get('vender', 'VentaController@create')->name('ventas.create');
+
 });

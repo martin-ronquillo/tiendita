@@ -7,7 +7,6 @@
 @section('content')
 <div class="container">
     <form name="searchForm" action="{{ route('search-categorie') }}" method="GET">
-        @csrf
         <div class="row">
 
             <h1 class="col-12 mb-4">Categorias</h1>
