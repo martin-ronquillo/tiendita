@@ -35,7 +35,16 @@ class VentaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $file = base64_decode(request('file'));
+        //$file = $request->file('file');
+        /*$image = $request->file('file');
+        $imageName = time().'.'.$image->extension();
+        $image->move(public_path('images'),$imageName);
+        
+        $imageUpload = new ImageUpload();
+        $imageUpload->filename = $imageName;
+        $imageUpload->save();*/
+        return view('ventas.prueba', compact('file'));
     }
 
     /**

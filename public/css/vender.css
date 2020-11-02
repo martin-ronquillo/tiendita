@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 .steps-input {
     border-top: none;
     border-left: none;
