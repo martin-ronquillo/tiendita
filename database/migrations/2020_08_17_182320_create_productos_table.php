@@ -20,7 +20,11 @@ class CreateProductosTable extends Migration
             $table->text('descripcion')->nullable();
             $table->float('precio', 8, 3);
             $table->integer('stock');
-            $table->string('picture')->nullable();
+            //$table->string('picture_one')->nullable();
+            //$table->string('picture_two')->nullable();
+            //$table->string('picture_three')->nullable();
+            //$table->string('picture_four')->nullable();
+            //$table->string('picture_five')->nullable();
             $table->enum('estado', ['Nuevo', 'Usado'])->nullable();
             $table->unsignedBigInteger('categoria_id')->index();
             $table->timestamps();

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Image;
 use App\Venta;
 use App\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use PhpParser\Node\Expr\New_;
+use Illuminate\Support\Facades\Storage;
 
 class VentaController extends Controller
 {
@@ -71,8 +72,30 @@ class VentaController extends Controller
         //Se consulta el producto recien creado para retornar su "Show"
 
         $producto = Producto::findOrFail($codigo_producto);
+        $producto = $producto->id;
 
-        return view('productos.show', compact('producto'));
+        return route('ventas.images', compact('producto'));
+    }
+
+    public function images($producto){
+        return view('ventas.images', compact('producto'));
+    }
+
+    public function storeImages(Request $request){
+        $request->validate([
+            'file' => 'required|image|max:5120',
+            'producto' => 'required|exists:productos,id',
+        ]);
+
+        $images = $request->file('file')->store('public/imagenes');
+
+        $url = Storage::url($images);
+        $producto = $request->producto;
+
+        Image::create([
+            'url' => $url,
+            'producto_id' => $producto
+        ]);
     }
 
     /**

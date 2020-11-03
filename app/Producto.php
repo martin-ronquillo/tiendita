@@ -14,6 +14,10 @@ class Producto extends Model
         return $this->hasMany(Favorito::class);
     }
 
+    public function images(){
+        return $this->hasMany(Image::class);
+    }
+
     public function compras(){
         return $this->hasMany(Compra::class);
     }
