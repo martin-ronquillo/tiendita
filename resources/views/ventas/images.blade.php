@@ -36,9 +36,13 @@
         Dropzone.prototype.defaultOptions.dictRemoveFile = "Eliminar archivo";
         Dropzone.prototype.defaultOptions.dictMaxFilesExceeded = "Solo puedes subir un maximo de 5 archivos";
         Dropzone.prototype.defaultOptions.dictInvalidFileType = "No puedes subir archivos de este tipo.";
+        Dropzone.prototype.defaultOptions.dictCancelUpload = "Cancelar subida";
+        Dropzone.prototype.defaultOptions.dictUploadCanceled = "Subida cancelada";
+        Dropzone.prototype.defaultOptions.dictCancelUploadConfirmation = "¿Esta seguro que desea cancelar la subida de este archivo?";
 
         //Subida dropzone
         Dropzone.options.myAwesomeDropzone = {
+            //Se agrega un token de validacion necesario para Dropzone
             headers:{
                 'X-CSRF-TOKEN' : "{{csrf_token()}}"
             },
@@ -47,15 +51,23 @@
             maxFiles: 5,
             addRemoveLinks: true,
             autoProcessQueue: false,
+            parallelUploads: 5,
             init: function () {
 
                 var myDropzone = this;
 
-                // Update selector to match your button
+                //El boton "subir archivos" desencadena el metodo ".processQueue()" que envia los archivos del Queue a la DB
                 $("#button").click(function (e) {
                     e.preventDefault();
                     myDropzone.processQueue();
                 });
+
+                //Emite un $refresh a livewire una vez se han terminado de subir los archivos del Queue a la DB
+                this.on("complete", function (file) { 
+                    if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) { 
+                        Livewire.emit('refreshImages');
+                    } 
+                }); 
             }
         };
         

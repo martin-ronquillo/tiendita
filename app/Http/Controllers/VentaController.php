@@ -81,6 +81,7 @@ class VentaController extends Controller
         return view('ventas.images', compact('producto'));
     }
 
+    //Sube las imagenes del Dropzone mediante Ajax, por eso no retorna
     public function storeImages(Request $request){
         $request->validate([
             'file' => 'required|image|max:5120',
