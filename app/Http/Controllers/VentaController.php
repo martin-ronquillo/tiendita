@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Venta;
+use App\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use PhpParser\Node\Expr\New_;
 
 class VentaController extends Controller
 {
@@ -35,16 +38,41 @@ class VentaController extends Controller
      */
     public function store(Request $request)
     {
-        $file = base64_decode(request('file'));
-        //$file = $request->file('file');
-        /*$image = $request->file('file');
-        $imageName = time().'.'.$image->extension();
-        $image->move(public_path('images'),$imageName);
         
-        $imageUpload = new ImageUpload();
-        $imageUpload->filename = $imageName;
-        $imageUpload->save();*/
-        return view('ventas.prueba', compact('file'));
+        $codigo_producto = rand(100000, 9999999);
+        $codigo_venta = rand(100000, 9999999);
+        //Se crea y se guarda el producto con los datos recibidos
+        $producto = New Producto();
+
+        $producto->id = $codigo_producto;
+        $producto->name = $request->nombre_producto;
+        $producto->caracteristicas = $request->caracteristicas;
+        $producto->descripcion = $request->descripcion;
+        $producto->precio = $request->precio;
+        $producto->stock = $request->stock;
+        $producto->estado = $request->condicion;
+        $producto->categoria_id = $request->categoria;
+
+        $producto->save();
+
+        //Se crea y se guarda la venta con los datos recibidos
+
+        $venta = New Venta();
+
+        $venta->id = $codigo_venta;
+        $venta->estado = 'activo';
+        $venta->producto_id = $codigo_producto;
+        $venta->user_id = Auth::user()->id;
+        $venta->pago_id = $request->pago;
+        $venta->envio_id = $request->envio;
+
+        $venta->save();
+
+        //Se consulta el producto recien creado para retornar su "Show"
+
+        $producto = Producto::findOrFail($codigo_producto);
+
+        return view('productos.show', compact('producto'));
     }
 
     /**

@@ -15,7 +15,7 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        return Producto::Findorfail(1);
+        return Producto::findorfail(1);
     }
 
     /**
@@ -48,61 +48,7 @@ class ProductoController extends Controller
     
     public function show(Producto $producto)
     {
-        $positivo = 0;
-        $negativo = 0;
-        $neutral = 0;
-
-        $calificaciones = Opinion::where('user_id', $producto->ventas->first()->users->id)->get();
-
-        foreach ($calificaciones as $key) {
-
-            if ($key->tipo === 'Positivo') {
-                $positivo+= 1;
-            }
-            if ($key->tipo === 'Negativo') {
-                $negativo+= 1;
-            }
-            if ($key->tipo === 'Neutral') {
-                $neutral+= 1;
-            }
-
-        }
-
-        if ($calificaciones->count() > 0) {
-            $promedioPosi = ($positivo/$calificaciones->count()) * 100;
-            $promedioNega = ($negativo/$calificaciones->count()) * 100;
-            $promedioNeut = ($neutral/$calificaciones->count()) * 100;
-            $recomendado = round($promedioPosi);
-
-            if($promedioPosi > $promedioNega && $promedioPosi > $promedioNeut){
-
-                return view('productos.show', compact('producto', 'promedioPosi', 'recomendado'));
-
-            }
-
-            if($promedioNega > $promedioPosi && $promedioNega > $promedioNeut){
-
-                return view('productos.show', compact('producto', 'promedioNega', 'recomendado'));
-
-            }
-
-            if($promedioNeut > $promedioNega && $promedioNeut > $promedioPosi){
-
-                return view('productos.show', compact('producto', 'promedioNeut', 'recomendado'));
-
-            }
-            
-            if ($promedioPosi == $promedioNega 
-                && $promedioPosi == $promedioNeut
-                && $promedioNeut == $promedioNega) {
-
-                    return view('productos.show', compact('producto', 'promedioNeut', 'recomendado'));
-            }
-        }
-        else{
-            return view('productos.show', compact('producto'));
-        }
-
+        return view('productos.show', compact('producto'));
     }
 
     /**

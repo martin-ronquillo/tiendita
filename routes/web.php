@@ -30,6 +30,7 @@ Route::middleware(['auth'])->group(function(){
 
     //Vender
         Route::get('vender', 'VentaController@create')->name('ventas.create');
+        Route::get('vender/images/{id}', 'VentaController@addImages')->name('ventas.addImages');
         Route::post('vender', 'VentaController@store')->name('ventas.store');
 
 });

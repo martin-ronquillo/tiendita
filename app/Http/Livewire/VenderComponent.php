@@ -10,25 +10,36 @@ class VenderComponent extends Component
     public $next2 = false;
     public $next3 = false;
     public $next4 = false;
+    public $next5 = false;
     public $step2 = "display: none;";
     public $step3 = "display: none;";
     public $step4 = "display: none;";
     public $step5 = "display: none;";
-    public $name;
+    public $nombre_producto;
     public $categoria = "seleccione";
     public $condicion;
     public $caracteristicas;
     public $descripcion;
+    public $stock = 1;
+    public $precio = 1;
+    public $pago;
+    public $envio;
 
     protected $rules = [
-        'name' => 'required|min:7',
-        'categoria' => 'required|exists:categorias,id'
+        'nombre_producto' => 'required|min:7',
+        'categoria' => 'required|exists:categorias,id',
+        'caracteristicas' => 'required|string|min:10|max:5500',
+        'descripcion' => 'required|string|min:10|max:5500',
+        'stock' => 'required|digits_between:1,3',
+        'precio' => 'required|between:0.5,9.99',
+        'pago' => 'required|exists:pagos,id',
+        'envio' => 'required|exists:envios,id',
     ];
 
     public function render()
     {
         //Si el "nombre" del producto en el primer step es verdadero, se habilita el boton "siguiente"
-        if (strlen($this->name) > 6) {
+        if (strlen($this->nombre_producto) > 6) {
             $this->next1 = true;
             $this->step2 = "";
         }else{
@@ -50,11 +61,23 @@ class VenderComponent extends Component
             $this->next3 = false;
         }
 
-        if (strlen($this->descripcion) >= 20 && strlen($this->caracteristicas) >= 20) {
+        if (strlen($this->descripcion) >= 10 && strlen($this->caracteristicas) >= 10
+            && $this->stock != 0 && $this->precio >= 0.5) {
+
             $this->next4 = true;
             $this->step5 = "";
+
         } else {
             $this->next4 = false;
+        }
+
+        if ($this->pago != "seleccione" && $this->pago != null &&
+            $this->envio >= "seleccione" && $this->envio != null) {
+
+            $this->next5 = true;
+
+        } else {
+            $this->next5 = false;
         }
 
         return view('livewire.vender-component');

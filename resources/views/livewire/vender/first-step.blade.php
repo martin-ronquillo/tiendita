@@ -13,9 +13,9 @@
                 <input
                     class="form-control steps-input mt-5 mb-5"
                     type="text" 
-                    name="name"
-                    id="name"
-                    wire:model="name"
+                    name="nombre_producto"
+                    id="nombre_producto"
+                    wire:model="nombre_producto"
                     required="required" 
                     placeholder="Ej: Celular Samsung Galaxy S9 64GB negro"
                 >
