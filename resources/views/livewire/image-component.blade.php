@@ -37,7 +37,7 @@
             </div>
 
             @if (@$imageCount >= 1)
-                <a href="{{ route('productos.show', $producto) }}" class="btn btn-primary float-right mt-2 mb-5">
+                <a href="{{ route('productos.show', $producto) }}" class="btn btn-success float-right mt-2 mb-5">
                     <i class="far fa-check-circle mr-1"></i>
                     Publicar
                 </a>

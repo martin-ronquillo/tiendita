@@ -1,5 +1,5 @@
 <label class="mt-3">
-    <h5 class="mb-5"><b>Completa la informacion de tu producto</b></h5>
+    <h5 class="mb-5"><b>Agreguemos algunas fotos de tu producto</b></h5>
     <em style="color: black;">
         <div class="info">
             Para no perder exposición, asegúrate de que la primera foto tenga fondo blanco puro,
@@ -21,4 +21,12 @@
 
         </div>
     </em>
+    {{--Muestra pequeños recuadros de las imagenes que se han cargado--}}
+    @if ($imageCount >= 1)
+        <div class="col-12 center img-preview-content mt-1 mb-4">
+            @foreach (@$file as $item)
+                <img class="img-preview" src="{{ $item->url }}" style="height: 80px;"> 
+            @endforeach
+        </div>
+    @endif
 </label>

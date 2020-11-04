@@ -3,6 +3,7 @@
 @section('title', 'Publicar')
 @section('styles')
     <link rel="stylesheet" href="{{ asset('css/vender.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/images.css') }}">
 @endsection
 
 @section('content')
@@ -15,7 +16,7 @@
 
             </div>
             <div class="col-5 mt-4 align-self-center">
-                <h1>Agreguemos algunas imagenes a tu venta</h1>
+                <h1>Las fotos pueden hacer cosas increibles..!</h1>
             </div>
             <div class="col-4 mt-4">
                 <img src="{{ asset('images/zapato_venta.gif') }}" alt="">
