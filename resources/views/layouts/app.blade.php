@@ -167,7 +167,7 @@
     <script>
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()
-        })
+        });
     </script>
     @stack('scripts')
     @livewireScripts

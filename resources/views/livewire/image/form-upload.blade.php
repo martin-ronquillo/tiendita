@@ -32,3 +32,8 @@
         Subir archivos
     </button>
 </div>
+
+
+<div class="col-12 mt-3" style="margin-bottom: -100px;">
+    <p class="text-danger">Es posible que tengas que recargar la pagina en caso de eliminar una imagen.</p>
+</div>

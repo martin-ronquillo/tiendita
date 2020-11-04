@@ -49,7 +49,7 @@
             },
             acceptedFiles: "image/*",
             maxFilesize: 5,
-            maxFiles: 5,
+            //maxFiles: 5,
             addRemoveLinks: true,
             autoProcessQueue: false,
             parallelUploads: 5,
@@ -72,5 +72,12 @@
             }
         };
         
+        /*$(function () {
+            $("#delete").click(function (e) {
+                e.preventDefault();
+                Livewire.emit('refreshImages');
+            });
+        });*/
+
     </script> 
 @endpush

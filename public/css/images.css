@@ -1,3 +1,11 @@
+.btn-close {
+    margin-left: -33px;
+    margin-top: -10px;
+    border-radius: 20px;
+    border: none;
+    position: absolute;
+}
+
 .img-preview-content {
     width: auto;
     max-height: 40px;
@@ -9,10 +17,22 @@
     border: 2px solid rgba(110, 110, 110, 0.418);
     border-radius: 7px;
     opacity: 0.5;
+    margin-right: 3px;
 }
 
 .img-preview:hover {
     border: 2px solid rgb(110, 110, 110);
     border-radius: 7px;
     opacity: 1;
+}
+
+.icon {
+    background-color: rgba(226, 31, 31, 0.658);
+    border-radius: 20px;
+}
+
+.icon:hover {
+    opacity: 1;
+    background-color: rgba(255, 0, 0, 0.24);
+    border-radius: 20px;
 }

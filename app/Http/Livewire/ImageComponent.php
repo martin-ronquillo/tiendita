@@ -22,32 +22,50 @@ class ImageComponent extends Component
 
         //Este pequeño algoritmo detecta si hay mas de 5 imagenes en la base de datos relacionadas con una venta, elimina las 
         //sobrantes(desde el registro 6 en adelante) y le resta el ultimo registro a la variable $file
-        if ($image->count() >= 6) {
+        if ($this->file->count() >= 6) {
 
-            foreach ($image as $key) {
+            foreach ($this->file as $key) {
 
-                if ($i >= $image->count()) {
+                if ($i >= 6) {
                     $borrar = Image::findOrFail($key->id);
                     $borrar->delete();
+                    unset($image[$i-1]);
                     unset($this->file[$i-1]);
+                    $i--;
                 }
 
-                $i += 1;
+                $i++;
 
             }
 
         }
         
-        if ($image->count() >= 1 || $image == Null) {
-            $this->imageCount = $image->count();
+        if ($this->file->count() >= 1 || $this->file == Null) {
+            $this->imageCount = $this->file->count();
         }
 
-        if ($image->count() >= 5 || $image == Null) {
+        if ($this->file->count() >= 5 || $this->file == Null) {
             $this->imageSection = 0;
         }else{
             $this->imageSection = 1;
         }
 
+        $this->emit('refreshImages');
+
         return view('livewire.image-component');
     }
+
+    public function delete($id){
+        Image::destroy($id);
+        $this->imageCount -= 1;
+
+        if ($this->imageCount >= 0) {
+            $this->imageSection = 1;
+            $this->emit('refreshImages');
+        } else {
+            $this->imageSection = 0;
+            $this->emit('refreshImages');
+        }
+    }
+
 }
