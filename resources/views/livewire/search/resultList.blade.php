@@ -12,11 +12,21 @@
         @if (@!$provincia || @$provincia === 'n/a')
             <li class="list-group-item" wire:key="{{ $item->id }}">
                 <div class="row">
+
                     <div class="col-3 img-content text-center">
-                        <a href="{{ route('productos.show', $item->id) }}">
-                            <img class="ml-3" src="{{ asset('images/1.png') }}" alt="{{ $item->name }}">
-                        </a>
+
+                        @if ($item->images->first())
+                            <a href="{{ route('productos.show', $item->id) }}">
+                                <img class="ml-3" src="{{ $item->images->first()->url }}" alt="{{ $item->name }}">
+                            </a>
+                        @else
+                            <a href="{{ route('productos.show', $item->id) }}">
+                                <img class="ml-3" src="{{ asset('images/no-image.png') }}" alt="{{ $item->name }}">
+                            </a>
+                        @endif
+
                     </div>
+
                     <div class="col-7 ml-5">
                         <a href="{{ route('productos.show', $item->id) }}" class="none-a">
                             <h5>{{ $item->name }}</h5>
@@ -29,9 +39,7 @@
                         </strong>
                         <em class="text-success">Envio {{ @$item->ventas->first()->envios->metodo }}</em>
                     </div>
-                    {{--<div class="col-1">
-                        @livewire('favoritos-component', ['identificador' => $item->id])
-                    </div>--}}
+
                 </div>
                 
                 <div class="divider">

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Producto extends Model
 {
@@ -28,5 +29,9 @@ class Producto extends Model
 
     public function categorias(){
         return $this->belongsTo(Categoria::class);
+    }
+
+    public function getUrlPathAttribute(){
+        return Storage::url($this->path);
     }
 }

@@ -74,7 +74,7 @@ class VentaController extends Controller
         $producto = Producto::findOrFail($codigo_producto);
         $producto = $producto->id;
 
-        return route('ventas.images', compact('producto'));
+        return redirect()->route('ventas.images', compact('producto'));
     }
 
     public function images($producto){

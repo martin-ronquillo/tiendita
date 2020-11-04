@@ -36,9 +36,20 @@
                         <li class="lista-item">
 
                             <div class="row">
-                                <div class="col-12 img-content text-center">
-                                    <img class="" src="{{ asset('images/3.png') }}" alt="{{ $producto->name }}">
-                                </div>
+
+                                @if (@$producto->images->count() > 0)
+                                    
+                                    {{--Carousel de imagenes--}}
+                                    @include('productos.complements.carousel')
+
+                                @else
+                                
+                                    <div class="col-12 img-content text-center">
+                                        <img class="" src="{{ asset('images/no-image.png') }}" alt="{{ $producto->name }}">
+                                    </div>
+
+                                @endif
+
                             </div>
                             
                         </li>
@@ -88,7 +99,7 @@
                                     <div class="row">
                                         <div class="col-10">
                                             <p class="mt-1 mb-2 text-secondary text-capitalize">
-                                                {{ $producto->estado }}
+                                                {{ $producto->estado }} - {{ $producto->ventas->first()->transaccions->count() }} vendidos
                                             </p>
                                         </div>
                                         <div class="col-2">

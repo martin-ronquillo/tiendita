@@ -18,9 +18,21 @@
                 style="width: 410px;"
             >
                 <div class="row">
-                    <div class="col-3 center img-content">
-                        <img class="ml-3" src="{{ asset('images/1.png') }}" alt="{{ $item->name }}">
-                    </div>
+
+                    @if ($item->productos->images->first())
+                    
+                        <div class="col-3 center img-content">
+                            <img class="ml-3" src="{{ $item->productos->images->first()->url }}" alt="{{ $item->productos->name }}">
+                        </div>
+
+                    @else
+
+                        <div class="col-3 center img-content">
+                            <img class="ml-3" src="{{ asset('images/no-image.png') }}" alt="{{ $item->productos->name }}">
+                        </div>
+
+                    @endif
+
                     <div class="col-9">
                         @if (strlen($item->productos->name) <= 44)
                             {{ $item->productos->name }}

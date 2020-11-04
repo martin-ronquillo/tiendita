@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Venta extends Model
 {
@@ -24,5 +25,9 @@ class Venta extends Model
 
     public function envios(){
         return $this->belongsTo(Envio::class, 'envio_id');
+    }
+
+    public function getUrlPathAttribute(){
+        return Storage::url($this->path);
     }
 }

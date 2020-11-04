@@ -12,6 +12,7 @@
                 placeholder="Buscar productos, marcas y más..."
             />
         </div>
+
         <div class="col-1">
             <span class="icon">
                 <button type="submit">
@@ -19,6 +20,7 @@
                 </button>
             </span>
         </div>
+        
         <div class="col-12">
             @if (@$items)
                 @if (@$buscar && strlen(@$buscar)>=3)

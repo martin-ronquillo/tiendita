@@ -17,10 +17,6 @@ class BuscarComponent extends Component
 
     public function updatedBuscar()
     {
-        $this->validate([
-            "buscar" => "required|min:3"
-        ]);
-
         $this->items = Producto::where('name', 'LIKE', "%".trim($this->buscar)."%")
                                 ->orWhere('caracteristicas', 'LIKE', "%".trim($this->buscar).'%')
                                 ->take(5)

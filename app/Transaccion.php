@@ -11,7 +11,7 @@ class Transaccion extends Model
     }
 
     public function ventas(){
-        return $this->belongsTo(Venta::class);
+        return $this->belongsTo(Venta::class, 'venta_id');
     }
 
     public function pagos(){

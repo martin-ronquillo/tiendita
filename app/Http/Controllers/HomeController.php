@@ -34,6 +34,10 @@ class HomeController extends Controller
 
     public function search(Request $request)
     {
+        $request->validate([
+            'search' => 'required|min:3',
+        ]);
+
         $busqueda = $request->search;
 
         return view('searchResults', compact('busqueda'));
@@ -45,23 +49,4 @@ class HomeController extends Controller
 
         return view('categoriesResults', compact('busqueda'));
     }
-
-    /*public function filter(Request $request)
-    {
-        $busqueda = $request->search;
-        $busquedaInfo = $request->search;
-        $results = Producto::where('name', 'LIKE', '%'.$request->search.'%')
-                            ->orWhere('caracteristicas', 'LIKE', '%'.$request->search.'%')
-                            ->orWhere('categoria_id', $request->search)
-                            ->get();
-
-        foreach ($results as $item) {
-            if ($item->ventas->first()->users->provincias->name === $request->provincia) {
-                $filtroProvincia = $item->ventas->first()->users->provincias->name;
-                return view('searchResultsFilter', compact('results', 'busqueda', 'filtroProvincia', 'busquedaInfo'));
-            }
-        }
-
-        return view('searchResultsFilter', compact('results', 'busqueda', 'busquedaInfo'));
-    }*/
 }
