@@ -20,6 +20,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('productos', 'ProductoController@index');
 Route::get('productos/all','ProductoController@show');
-Route::group(['middleware' => ['cors']], function () {
+/*Route::group(['middleware' => ['cors']], function () {
     //Rutas a las que se permitirá acceso
+});*/
+
+Route::group(['prefix' => 'auth'], function () {
+    Route::post('login', 'AuthController@login');
+    Route::post('signup', 'AuthController@signup');
+  
+    Route::group(['middleware' => 'auth:api'], function() {
+        Route::get('logout', 'AuthController@logout');
+        Route::get('user', 'AuthController@user');
+    });
 });
