@@ -15,7 +15,8 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        return Producto::findorfail(1);
+        $producto = Producto::with('categorias')->get();
+        return response()->json($producto);
     }
 
     /**

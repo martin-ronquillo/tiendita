@@ -13,13 +13,12 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('productos', 'ProductoController@index');
-Route::get('productos/all','ProductoController@show');
 /*Route::group(['middleware' => ['cors']], function () {
     //Rutas a las que se permitirá acceso
 });*/
@@ -27,6 +26,7 @@ Route::get('productos/all','ProductoController@show');
 Route::group(['prefix' => 'auth'], function () {
     Route::post('login', 'AuthController@login');
     Route::post('signup', 'AuthController@signup');
+    Route::get('productos', 'ProductoController@index');
   
     Route::group(['middleware' => 'auth:api'], function() {
         Route::get('logout', 'AuthController@logout');
