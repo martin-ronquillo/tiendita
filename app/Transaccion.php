@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Transaccion extends Model
 {
     public function compras(){
-        return $this->belongsTo(Compra::class);
+        return $this->belongsTo(Compra::class, 'compra_id');
     }
 
     public function ventas(){

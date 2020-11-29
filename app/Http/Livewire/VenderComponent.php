@@ -24,6 +24,7 @@ class VenderComponent extends Component
     public $precio = 1;
     public $pago;
     public $envio;
+    public $precio_envio = false;
 
     protected $rules = [
         'nombre_producto' => 'required|min:7',
@@ -71,8 +72,14 @@ class VenderComponent extends Component
             $this->next4 = false;
         }
 
+        if ($this->envio == 2) {
+            $this->precio_envio = true;
+        }else {
+            $this->precio_envio = false;
+        }
+
         if ($this->pago != "seleccione" && $this->pago != null &&
-            $this->envio >= "seleccione" && $this->envio != null) {
+            $this->envio != "seleccione" && $this->envio != null) {
 
             $this->next5 = true;
 

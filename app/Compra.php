@@ -11,7 +11,7 @@ class Compra extends Model
     }
 
     public function productos(){
-        return $this->belongsTo(Producto::class);
+        return $this->belongsTo(Producto::class, 'producto_id');
     }
 
     public function transaccions(){

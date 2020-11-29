@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Image;
 use App\Venta;
 use App\Producto;
+use App\Categoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -66,6 +67,7 @@ class VentaController extends Controller
         $venta->user_id = Auth::user()->id;
         $venta->pago_id = $request->pago;
         $venta->envio_id = $request->envio;
+        $venta->precio_envio = $request->precio_envio;
 
         $venta->save();
 
@@ -97,6 +99,18 @@ class VentaController extends Controller
             'url' => $url,
             'producto_id' => $producto
         ]);
+    }
+
+    public function deshabilitarVenta(Request $request){
+        $venta = Venta::where('producto_id', $request->producto)->first();
+
+        $venta->estado = 'suspendido';
+
+        $venta->save();
+
+        $categorias = Categoria::all();
+
+        return view('home', compact('categorias'));
     }
 
     /**

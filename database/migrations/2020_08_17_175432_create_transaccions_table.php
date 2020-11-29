@@ -19,6 +19,8 @@ class CreateTransaccionsTable extends Migration
             $table->unsignedBigInteger('venta_id')->index();
             $table->unsignedBigInteger('pago_id')->index();
             $table->unsignedBigInteger('envio_id')->index();
+            $table->enum('estado', ['concretada', 'no concretada', 'problema']);
+            $table->date('confirmacion')->nullable();
             $table->timestamps();
         });
     }

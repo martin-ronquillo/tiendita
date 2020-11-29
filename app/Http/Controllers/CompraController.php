@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Compra;
+use App\Producto;
 use Illuminate\Http\Request;
 
 class CompraController extends Controller
@@ -38,15 +39,22 @@ class CompraController extends Controller
         //
     }
 
+    public function calificar($compra)
+    {
+        $compras = Compra::where('id', $compra)->first();
+        return view('compras.calificar', compact('compras'));
+    }
+
     /**
      * Display the specified resource.
      *
      * @param  \App\Compra  $compra
      * @return \Illuminate\Http\Response
      */
-    public function show(Compra $compra)
+    public function show(Compra $compra, $id)
     {
-        //
+        $compras = Compra::where('user_id', $id)->get();
+        return view('compras.show', compact('compras'));
     }
 
     /**

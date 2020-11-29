@@ -1,6 +1,7 @@
-<p class="mt-5"><h5>Ultimas preguntas</h5></p>
-    
-@if (@$preguntas)
+@if (@$preguntas->count() >= 1)
+
+    <p class="mt-5"><h5>Ultimas preguntas</h5></p>
+
     @foreach (@$preguntas as $item)
 
         <div class="p-y-r mb-4">
@@ -39,4 +40,8 @@
         </div>
 
     @endforeach
+@else
+
+    <h5>Nadie hizo preguntas todavía. <b>¡Sé el primero!</b></h5>
+
 @endif

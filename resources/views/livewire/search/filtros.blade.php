@@ -5,7 +5,8 @@
         $provincias = [];
 
         foreach (@$results as $item) {
-            $provincias[] = @$item->ventas->first()->users->provincias->name;
+            if ($item->ventas->first()->estado === 'activo')
+                $provincias[] = @$item->ventas->first()->users->provincias->name;
         }
 
         @$resultadoProvincias = array_unique($provincias);
@@ -17,16 +18,24 @@
         //Cuenta los items nuevos y los usados
         $nuevos = 0;
         $usados = 0;
+        $reacondicionado = 0;
         
         foreach (@$results2 as $key) {
             if (@$key->estado === 'Nuevo') {
-                $nuevos += 1;
-            }else{
-                $usados += 1;
+                if ($key->ventas->first()->estado === 'activo')
+                    $nuevos += 1;
+            }
+            if(@$key->estado === 'Usado'){
+                if ($key->ventas->first()->estado === 'activo')
+                    $usados += 1;
+            }
+            if(@$key->estado === 'Reacondicionado'){
+                if ($key->ventas->first()->estado === 'activo')
+                    $reacondicionado += 1;
             }
         }
 
-        $totalCondicion = $nuevos + $usados;
+        $totalCondicion = $nuevos + $usados + $reacondicionado;
 
         if (@App\Categoria::where('id', $busqueda)->first()->categoria) {
             $busquedaInfo = App\Categoria::where('id', $busqueda)->first()->categoria;
@@ -113,24 +122,36 @@
         <h4>Condicion</h4>
         <div class="form-group">
             <ul class="list-unstyled">
-                <li>
-                    <label>
-                        <input type="radio" wire:model="condicion" value="Nuevo" name="condicion">
-                        <em>Nuevo ({{ $nuevos }})</em>
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input type="radio" wire:model="condicion" value="Usado" name="condicion">
-                        <em>Usado ({{ $usados }})</em>
-                    </label>
-                </li>
+                @if (@$nuevos >= 1)
+                    <li>
+                        <label>
+                            <input type="radio" wire:model="condicion" value="Nuevo" name="condicion">
+                            <em>Nuevo ({{ $nuevos }})</em>
+                        </label>
+                    </li>
+                @endif
+                @if (@$usados >= 1)
+                    <li>
+                        <label>
+                            <input type="radio" wire:model="condicion" value="Usado" name="condicion">
+                            <em>Usado ({{ $usados }})</em>
+                        </label>
+                    </li>
+                @endif
+                @if (@$reacondicionado >= 1)
+                    <li>
+                        <label>
+                            <input type="radio" wire:model="condicion" value="Reacondicionado" name="condicion">
+                            <em>Reacondicionado ({{ $reacondicionado }})</em>
+                        </label>
+                    </li>
+                @endif
             </ul>
         </div>
     @endif
 
 {{--Por Ubicacion--}}
-    @if (@$totalProvincias > 1)
+    @if (@$totalProvincias > 1 && $provincia === Null || $provincia === 'n/a')
         <h4>Ubicacion</h4>
         <ul class="list-unstyled">
             @foreach ($resultadoProvincias as $item)

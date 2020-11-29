@@ -36,3 +36,14 @@
     background-color: rgba(255, 0, 0, 0.24);
     border-radius: 20px;
 }
+
+.btn-link {
+    display: flex;
+    background-color: transparent;
+    border: transparent;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}

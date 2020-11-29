@@ -14,7 +14,7 @@
     @if (Auth::user() && $i > 0)
         @foreach ($favoritos as $item)
             
-            <a class="dropdown-item" href="{{ route('logout') }}"
+            <a class="dropdown-item" href="{{ route('productos.show', $item->productos->id) }}"
                 style="width: 410px;"
             >
                 <div class="row">
@@ -22,13 +22,13 @@
                     @if ($item->productos->images->first())
                     
                         <div class="col-3 center img-content">
-                            <img class="ml-3" src="{{ $item->productos->images->first()->url }}" alt="{{ $item->productos->name }}">
+                            <img class="ml-2" src="{{ $item->productos->images->first()->url }}" alt="{{ $item->productos->name }}">
                         </div>
 
                     @else
 
                         <div class="col-3 center img-content">
-                            <img class="ml-3" src="{{ asset('images/no-image.png') }}" alt="{{ $item->productos->name }}">
+                            <img class="ml-2" src="{{ asset('images/no-image.png') }}" alt="{{ $item->productos->name }}">
                         </div>
 
                     @endif

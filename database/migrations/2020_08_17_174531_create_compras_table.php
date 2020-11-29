@@ -17,6 +17,9 @@ class CreateComprasTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('producto_id')->index();
             $table->unsignedBigInteger('user_id')->index();
+            $table->integer('cantidad', 3);
+            $table->float('precio_envio', 8, 3);
+            $table->float('tot_compra', 10, 3);
             $table->timestamps();
         });
     }

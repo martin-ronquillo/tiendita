@@ -20,6 +20,7 @@ class CreateVentasTable extends Migration
             $table->unsignedBigInteger('user_id')->index();
             $table->unsignedBigInteger('pago_id')->index();
             $table->unsignedBigInteger('envio_id')->index();
+            $table->float('precio_envio', 8, 3);
             $table->timestamps();
         });
     }

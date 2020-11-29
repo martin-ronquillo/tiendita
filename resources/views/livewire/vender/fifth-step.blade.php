@@ -41,6 +41,17 @@
                         <option value="{{ $item->id }}"> {{ $item->metodo }} </option>
                     @endforeach
                 </select>
+                <input type="hidden" name="precio_envio" value="0">
+                @if ($precio_envio)
+                    <div class="col-6">
+                        <label for="precio" class="mt-1" style="color: rgba(128, 128, 128, 0.733);">Valor adicional del envio</label>
+                        <br>
+                        <input type="number" step="0.01" name="precio_envio" class="steps-input" value="1">
+                        @error('precio') 
+                            <span class="error text-danger">{{ $message }}</span> 
+                        @enderror
+                    </div>
+                @endif
                 @error('envio') 
                     <span class="error text-danger">{{ $message }}</span> 
                 @enderror

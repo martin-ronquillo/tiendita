@@ -42,8 +42,16 @@
                     Publicar
                 </a>
             @endif
+            
+            <form action="{{ route('ventas.deshabilitar') }}" method="post">
+                @csrf
+                
+                <input type="hidden" value="{{ $producto }}" name="producto">
+                <button type="submit" class="btn-link text-secondary float-left mt-3 mb-5 mr-3">
+                    Cancelar publicacion
+                </button>
 
-            <a href="{{ route('home') }}" class="text-secondary float-left mt-3 mb-5 mr-3">Cancelar publicacion</a>
+            </form>
 
         </div>
 

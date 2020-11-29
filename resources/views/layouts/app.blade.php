@@ -71,6 +71,7 @@
                         @else
                         
                         {{--User--}}
+                            <small><i class="far fa-user-circle fa-2x mt-2" style="color: rgba(51, 51, 51, 0.616)"></i></small>
                             <li class="nav-item dropdown mr-2">
                                 <a id="navbarDropdown text-dark" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -95,7 +96,7 @@
                         {{--Mis Compras--}}
                             <li class="nav-item mr-2">
 
-                                <a href="" class="nav-link">
+                                <a href="{{ route('compras.show', Auth::user()->id) }}" class="nav-link">
                                     Mis compras
                                 </a>
 
@@ -152,6 +153,24 @@
 
             </div>
         </nav>
+        
+        <!-- Mensajes de notificacion -->
+            @if(isset($danger))
+                <div style="z-index: 99 !important">
+                    <div class="container mt-5">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    {{ $danger }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
 
         <main class="mt-3 mb-3">
             @yield('content')

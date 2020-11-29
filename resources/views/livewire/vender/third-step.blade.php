@@ -62,7 +62,7 @@
                     >
                     Reacondicionado
                     
-                    <a href="#" class="boton" data-toggle="tooltip" data-placement="right"
+                    <a href="#third-step" class="boton" data-toggle="tooltip" data-placement="right"
                     title="Este producto contiene piezas que fueron reemplazadas y testeadas para que funcione y luzca como nuevo. Además, incluye los accesorios principales. Agrega en la descripción más detalles sobre el grado de reacondicionamiento.">?</a>
                 </label>
             </li>
