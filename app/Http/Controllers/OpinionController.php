@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Opinion;
+use App\Transaccion;
+use App\Compra;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class OpinionController extends Controller
@@ -35,7 +39,31 @@ class OpinionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $transaccion = Transaccion::where('id', $request->user)->first();
+        $compras = Compra::where('user_id', Auth::user()->id)->get();
+        $opinion = new Opinion();
+
+        if ($request->opinion == Null) {
+
+            $danger = "La opinion no puede estar vacia";
+            return view('compras.show', compact('compras', 'danger'));
+
+        }
+
+        //Almacena la opinion
+        $opinion->opinion = $request->opinion;
+        $opinion->tipo = $request->tipo_usuario;
+        $opinion->aporta_id = Auth::user()->id;
+        $opinion->user_id = $request->user_opinion;
+
+        $opinion->save();
+        //Cambia el estado de la transaccion
+        $transaccion->estado = $request->confirmacion;
+        $transaccion->confirmacion = Carbon::now();
+
+        $transaccion->save();
+
+        return view('compras.show', compact('compras'));
     }
 
     /**
