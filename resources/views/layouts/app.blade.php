@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/min/dropzone.min.css">
     @yield('styles')
+    @yield('styles2')
     @livewireStyles
 
 </head>
