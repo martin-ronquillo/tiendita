@@ -7,6 +7,7 @@ use App\Producto;
 use App\Compra;
 use App\Venta;
 use App\Categoria;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -88,10 +89,10 @@ class TransaccionController extends Controller
         //Si el producto ya no tiene stock, la venta se finaliza
         if ($producto->stock <= 0) {
             $venta->estado = 'vendido';
+            $venta->venta_fin = Carbon::now();
             
             $venta->save();
         }
-
 
         //Se crea y se guarda la transaccion con los datos recibidos
 

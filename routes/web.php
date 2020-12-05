@@ -40,14 +40,20 @@ Route::middleware(['auth'])->group(function(){
         Route::post('vender/deshabilitado/', 'VentaController@deshabilitarVenta')->name('ventas.deshabilitar');
     
     //Comprar
-        //Al momento de comprar el producto
         Route::get('compras/{id}', 'CompraController@show')->name('compras.show');
+        Route::get('compra/calificar/{producto}', 'CompraController@calificar')->name('compras.calificar');
+        //Al momento de comprar el producto
         Route::get('comprar/', 'TransaccionController@confirmaMetodos')->name('compras.confirma-metodos');
         Route::get('comprar/revisar-y-confirmar', 'TransaccionController@revisaMetodos')->name('compras.revisa-confirma');
         Route::post('comprar/comprado', 'TransaccionController@store')->name('compras.store');
-        Route::get('compra/calificar/{producto}', 'CompraController@calificar')->name('compras.calificar');
 
     //Opiniones
         Route::post('opinion/store', 'OpinionController@store')->name('opinion.store');
+
+    //Preguntas
+        Route::get('preguntas/{id}', 'PreguntaController@show')->name('preguntas.show');
+
+    //Favoritos
+        Route::get('favoritos/{id}', 'FavoritoController@show')->name('favoritos.show');
 
 });

@@ -44,9 +44,10 @@ class PreguntaController extends Controller
      * @param  \App\Pregunta  $pregunta
      * @return \Illuminate\Http\Response
      */
-    public function show(Pregunta $pregunta)
+    public function show(Pregunta $pregunta, $id)
     {
-        //
+        $preguntas = Pregunta::where('user_id', $id)->get();
+        return view('preguntas.show', compact('preguntas'));
     }
 
     /**

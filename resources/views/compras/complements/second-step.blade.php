@@ -42,7 +42,7 @@
                         <div class="img-content-compras text-center">
                             <img class="img-compras" src="{{ $compras->productos->images->first()->url }}" alt="{{ $compras->productos->name }}">
                             <br>
-                            <a href="{{ route('productos.show', $compras->productos->id) }}">{{ $compras->productos->name }}</a>
+                            <a href="{{ route('productos.show', $compras->productos->id) }}" target="_blank">{{ $compras->productos->name }}</a>
                             <br>
                             <p style="color: rgb(172, 11, 11);">U$S {{ $compras->productos->precio }}</p>
                             <em class="text-secondary">Vendedor: {{ $compras->productos->ventas->first()->users->name }} {{ $compras->productos->ventas->first()->users->apellido_pater }}</em>

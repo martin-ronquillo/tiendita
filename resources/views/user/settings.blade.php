@@ -30,11 +30,11 @@
                   
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body" style="padding-left: 53px; margin-top: -20px;">
-                                <a href="" class="no-link">Compras</a>
+                                <a href="{{ route('compras.show', Auth::user()->id) }}" class="no-link">Compras</a>
                                 <br>
-                                <a href="" class="no-link">Preguntas</a>
+                                <a href="{{ route('preguntas.show', Auth::user()->id) }}" class="no-link">Preguntas</a>
                                 <br>
-                                <a href="" class="no-link">Favoritos</a>
+                                <a href="{{ route('favoritos.show', Auth::user()->id) }}" class="no-link">Favoritos</a>
                             </div>
                         </div>
                     </div>
