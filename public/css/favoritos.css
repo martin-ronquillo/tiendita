@@ -1,0 +1,52 @@
+.lista {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    border-radius: 0px;
+}
+
+.lista-item {
+    position: relative;
+    display: block;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.lista-item-non-border {
+    position: relative;
+    display: block;
+}
+
+.img-content {
+    width: auto;
+    height: 100px;
+}
+
+.img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 60%;
+}
+
+.img-content-compras {
+    width: auto;
+    height: 120px;
+}
+
+.img-compras {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.steps-input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.no-btn {
+    border: transparent;
+    color: black;
+    background-color: transparent;
+}

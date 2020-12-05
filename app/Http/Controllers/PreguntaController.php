@@ -79,8 +79,12 @@ class PreguntaController extends Controller
      * @param  \App\Pregunta  $pregunta
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pregunta $pregunta)
+    public function destroy(Pregunta $pregunta, $id)
     {
-        //
+        $delete = Pregunta::where('producto_id', $id)->get();
+
+        foreach ($delete as $key) {
+            Pregunta::destroy($key);
+        }
     }
 }

@@ -52,6 +52,7 @@ Route::middleware(['auth'])->group(function(){
 
     //Preguntas
         Route::get('preguntas/{id}', 'PreguntaController@show')->name('preguntas.show');
+        Route::delete('preguntas/{id}', 'PreguntaController@destroy')->name('preguntas.eliminar');
 
     //Favoritos
         Route::get('favoritos/{id}', 'FavoritoController@show')->name('favoritos.show');

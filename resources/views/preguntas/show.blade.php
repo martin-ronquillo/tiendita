@@ -135,12 +135,12 @@
                             @endforeach
 
                         </div>
-
+                        {{--
                         <div class="col-12 text-right">
-                            <button type="button" class="text-secondary no-btn" data-toggle="modal" data-target="#exampleModalCenter">
+                            <button type="button" class="text-secondary no-btn" data-id="{{ $consulta->id }}" id="getDeleteId" data-toggle="modal" data-target="#exampleModalCenter">
                                 <i class="fas fa-trash-alt"> Eliminar</i>
                             </button>
-                        </div>
+                        </div>--}}
 
                     @endforeach
 
@@ -168,7 +168,7 @@
                     <h2 class="mb-2">Eliminar pregunta</h2>
                     Se eliminarán todas las preguntas que hayas realizado en esta publicación.
                     <br>
-                    <button type="button" class="btn btn-primary mt-2">Confirmar</button>
+                    <button type="button" class="btn btn-primary mt-2" id="SubmitDeleteProductForm">Confirmar</button>
                 </div>
             </div>
         </div>

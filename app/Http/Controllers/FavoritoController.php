@@ -44,9 +44,10 @@ class FavoritoController extends Controller
      * @param  \App\Favorito  $favorito
      * @return \Illuminate\Http\Response
      */
-    public function show(Favorito $favorito)
+    public function show(Favorito $favorito, $id)
     {
-        //
+        $favoritos = Favorito::where('user_id', $id)->get();
+        return view('favoritos.show', compact('favoritos'));
     }
 
     /**
