@@ -15,10 +15,10 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('cedula')->unique();
+            $table->string('cedula')->unique()->nullable();
             $table->string('name');
             $table->string('apellido_pater');
-            $table->string('apellido_mater');
+            $table->string('apellido_mater')->nullable();
             $table->string('direc')->nullable();
             $table->unsignedBigInteger('provincia_id')->index();
             $table->string('tlf')->nullable();

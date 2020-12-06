@@ -129,11 +129,11 @@ CREATE TABLE `favoritos` (
   KEY `favoritos_producto_id_foreign` (`producto_id`),
   CONSTRAINT `favoritos_producto_id_foreign` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `favoritos_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `favoritos` */
 
-insert  into `favoritos`(`id`,`user_id`,`producto_id`,`created_at`,`updated_at`) values (4,2,3,NULL,NULL),(6,2,2,'2020-10-24 23:03:44','2020-10-24 23:03:44'),(47,1,4,'2020-11-04 02:06:04','2020-11-04 02:06:04'),(48,1,2,'2020-11-04 02:08:48','2020-11-04 02:08:48'),(49,1,495560,'2020-11-27 15:30:50','2020-11-27 15:30:50');
+insert  into `favoritos`(`id`,`user_id`,`producto_id`,`created_at`,`updated_at`) values (4,2,3,NULL,NULL),(6,2,2,'2020-10-24 23:03:44','2020-10-24 23:03:44'),(48,1,2,'2020-11-04 02:08:48','2020-11-04 02:08:48'),(49,1,495560,'2020-11-27 15:30:50','2020-11-27 15:30:50'),(51,1,4,'2020-12-05 18:17:36','2020-12-05 18:17:36');
 
 /*Table structure for table `images` */
 
@@ -564,6 +564,7 @@ CREATE TABLE `ventas` (
   `pago_id` bigint(20) unsigned NOT NULL,
   `envio_id` bigint(20) unsigned NOT NULL,
   `precio_envio` float(8,3) NOT NULL,
+  `venta_fin` date DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -579,7 +580,7 @@ CREATE TABLE `ventas` (
 
 /*Data for the table `ventas` */
 
-insert  into `ventas`(`id`,`estado`,`producto_id`,`user_id`,`pago_id`,`envio_id`,`precio_envio`,`created_at`,`updated_at`) values (1,'activo',2,1,1,4,0.000,NULL,NULL),(2,'activo',1,2,1,1,0.000,NULL,NULL),(3,'activo',3,2,2,3,0.000,NULL,NULL),(4,'activo',4,3,3,2,0.000,NULL,NULL),(5,'activo',5,4,2,1,5.000,NULL,'2020-11-28 01:45:37'),(162850,'activo',2441883,1,1,1,0.000,'2020-11-04 02:11:16','2020-11-04 02:11:16'),(3233131,'activo',1430989,1,1,2,4.990,'2020-11-28 22:19:29','2020-11-28 22:19:29'),(4151741,'activo',495560,1,1,1,0.000,'2020-11-03 22:30:05','2020-11-27 16:29:52'),(9127923,'activo',8541576,1,1,2,0.000,'2020-11-04 02:28:58','2020-11-04 02:28:58');
+insert  into `ventas`(`id`,`estado`,`producto_id`,`user_id`,`pago_id`,`envio_id`,`precio_envio`,`venta_fin`,`created_at`,`updated_at`) values (1,'finalizado',2,1,1,4,0.000,'2020-12-04',NULL,NULL),(2,'activo',1,2,1,1,0.000,NULL,NULL,NULL),(3,'activo',3,2,2,3,0.000,NULL,NULL,NULL),(4,'activo',4,3,3,2,0.000,NULL,NULL,NULL),(5,'activo',5,4,2,1,5.000,NULL,NULL,'2020-11-28 01:45:37'),(162850,'activo',2441883,1,1,1,0.000,NULL,'2020-11-04 02:11:16','2020-11-04 02:11:16'),(3233131,'activo',1430989,1,1,2,4.990,NULL,'2020-11-28 22:19:29','2020-11-28 22:19:29'),(4151741,'activo',495560,1,1,1,0.000,NULL,'2020-11-03 22:30:05','2020-11-27 16:29:52'),(9127923,'activo',8541576,1,1,2,0.000,NULL,'2020-11-04 02:28:58','2020-11-04 02:28:58');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

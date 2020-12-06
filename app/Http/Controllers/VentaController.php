@@ -6,6 +6,8 @@ use App\Image;
 use App\Venta;
 use App\Producto;
 use App\Categoria;
+use App\Pregunta;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -122,6 +124,14 @@ class VentaController extends Controller
     public function show(Venta $venta)
     {
         //
+    }
+
+    public function resumen($id)
+    {
+        $ventas = Venta::where('user_id', $id)->get();
+        $user = User::findOrFail(Auth::user()->id);
+
+        return view('ventas.resumen', compact('ventas', 'user'));
     }
 
     /**

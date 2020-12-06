@@ -50,3 +50,40 @@
     color: black;
     background-color: transparent;
 }
+
+.no-link-card {
+    text-decoration: none;
+}
+
+.no-link-card:link {
+    color: rgb(128, 128, 128);
+    text-decoration: none;
+}
+
+
+/* visited link */
+
+.no-link-card:visited {
+    text-decoration: none;
+}
+
+
+/* mouse over link */
+
+.no-link-card:hover {
+    color: rgba(4, 0, 255, 0.822);
+    background-color: rgba(128, 128, 128, 0.178);
+    text-decoration: none;
+}
+
+
+/* selected link */
+
+.no-link-card:active {
+    color: black;
+    text-decoration: none;
+}
+
+.no-border {
+    border: rgb(235, 220, 220);
+}

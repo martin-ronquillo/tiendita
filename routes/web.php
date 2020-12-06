@@ -38,6 +38,8 @@ Route::middleware(['auth'])->group(function(){
         Route::post('vender/images/', 'VentaController@storeImages')->name('ventas.storeImages');
         //Si se cancela la venta cuando se esta subiendo las imagenes
         Route::post('vender/deshabilitado/', 'VentaController@deshabilitarVenta')->name('ventas.deshabilitar');
+        //Resumen de ventas del panel del usuario
+        Route::get('ventas/resumen/{id}', 'VentaController@resumen')->name('ventas.resumen');
     
     //Comprar
         Route::get('compras/{id}', 'CompraController@show')->name('compras.show');

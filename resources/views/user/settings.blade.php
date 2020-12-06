@@ -49,7 +49,7 @@
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                             <div class="card-body" style="padding-left: 53px; margin-top: -20px;">
-                                <a href="" class="no-link">Resumen</a>
+                                <a href="{{ route('ventas.resumen', Auth::user()->id) }}" class="no-link">Resumen</a>
                                 <br>
                                 <a href="" class="no-link">Publicaciones</a>
                                 <br>
