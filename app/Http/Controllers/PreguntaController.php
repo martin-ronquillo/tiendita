@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Pregunta;
+use App\Venta;
 use Illuminate\Http\Request;
 
 class PreguntaController extends Controller
@@ -48,6 +49,12 @@ class PreguntaController extends Controller
     {
         $preguntas = Pregunta::where('user_id', $id)->get();
         return view('preguntas.show', compact('preguntas'));
+    }
+
+    public function responder($id)
+    {
+        $ventas = Venta::where('user_id', $id)->get();
+        return view('preguntas.responder', compact('ventas'));
     }
 
     /**

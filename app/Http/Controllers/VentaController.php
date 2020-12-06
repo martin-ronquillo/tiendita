@@ -121,9 +121,10 @@ class VentaController extends Controller
      * @param  \App\Venta  $venta
      * @return \Illuminate\Http\Response
      */
-    public function show(Venta $venta)
+    public function show(Venta $venta, $id)
     {
-        //
+        $ventas = Venta::where('user_id', $id)->get();
+        return view('ventas.show', compact('ventas'));
     }
 
     public function resumen($id)

@@ -51,9 +51,9 @@
                             <div class="card-body" style="padding-left: 53px; margin-top: -20px;">
                                 <a href="{{ route('ventas.resumen', Auth::user()->id) }}" class="no-link">Resumen</a>
                                 <br>
-                                <a href="" class="no-link">Publicaciones</a>
+                                <a href="{{ route('ventas.show', Auth::user()->id) }}" class="no-link">Publicaciones</a>
                                 <br>
-                                <a href="" class="no-link">Preguntas</a>
+                                <a href="{{ route('preguntas.responder', Auth::user()->id) }}" class="no-link">Preguntas</a>
                                 <br>
                                 <a href="" class="no-link">Ventas</a>
                             </div>

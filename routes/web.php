@@ -40,6 +40,8 @@ Route::middleware(['auth'])->group(function(){
         Route::post('vender/deshabilitado/', 'VentaController@deshabilitarVenta')->name('ventas.deshabilitar');
         //Resumen de ventas del panel del usuario
         Route::get('ventas/resumen/{id}', 'VentaController@resumen')->name('ventas.resumen');
+        //Publicaciones
+        Route::get('ventas/{id}', 'VentaController@show')->name('ventas.show');
     
     //Comprar
         Route::get('compras/{id}', 'CompraController@show')->name('compras.show');
@@ -55,6 +57,7 @@ Route::middleware(['auth'])->group(function(){
     //Preguntas
         Route::get('preguntas/{id}', 'PreguntaController@show')->name('preguntas.show');
         Route::delete('preguntas/{id}', 'PreguntaController@destroy')->name('preguntas.eliminar');
+        Route::get('preguntas/responder/{id}', 'PreguntaController@responder')->name('preguntas.responder');
 
     //Favoritos
         Route::get('favoritos/{id}', 'FavoritoController@show')->name('favoritos.show');

@@ -1,0 +1,96 @@
+.lista {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    border-radius: 0px;
+}
+
+.lista-item {
+    position: relative;
+    display: block;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.lista-item-non-border {
+    position: relative;
+    display: block;
+}
+
+.img-content {
+    width: auto;
+    height: 100px;
+}
+
+.img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 60%;
+}
+
+.img-content-compras {
+    width: auto;
+    height: 120px;
+}
+
+.img-compras {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.steps-input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.no-btn {
+    border: transparent;
+    color: black;
+    background-color: transparent;
+}
+
+.no-link-card {
+    text-decoration: none;
+}
+
+.no-link-card:link {
+    color: rgb(128, 128, 128);
+    text-decoration: none;
+}
+
+
+/* visited link */
+
+.no-link-card:visited {
+    text-decoration: none;
+}
+
+
+/* mouse over link */
+
+.no-link-card:hover {
+    color: rgba(4, 0, 255, 0.822);
+    background-color: rgba(128, 128, 128, 0.178);
+    text-decoration: none;
+}
+
+
+/* selected link */
+
+.no-link-card:active {
+    color: black;
+    text-decoration: none;
+}
+
+.no-border {
+    border: rgb(235, 220, 220);
+}
+
+.info {
+    background-color: rgba(190, 190, 190, 0.301);
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 4px solid rgba(83, 160, 248, 0.822);
+}

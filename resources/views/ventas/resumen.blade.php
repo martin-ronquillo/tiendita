@@ -163,7 +163,7 @@
                                 <div class="card-body">
                                     <span class="text-secondary">Tienes {{ $ventas_suspendidas }} ventas suspendidas.</span>
                                 </div>
-                                <a href="" class="no-link-card">
+                                <a href="{{ route('ventas.show', Auth::user()->id) }}" class="no-link-card">
                                     <div class="card-footer" style="background-color: transparent;">
                                         <div class="row">
                                             <div class="col-10 text-primary">
