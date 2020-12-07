@@ -62,6 +62,9 @@
                                             <p class="text-secondary">
                                                 Tiene exposicion minima                                                
                                             </p>
+                                            <span class="text-success">
+                                                Envio {{ $venta->envios->metodo }}
+                                            </span>
                                         </div>
 
                                     </div>

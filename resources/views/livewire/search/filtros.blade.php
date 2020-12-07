@@ -5,8 +5,8 @@
         $provincias = [];
 
         foreach (@$results as $item) {
-            if ($item->ventas->first()->estado === 'activo')
-                $provincias[] = @$item->ventas->first()->users->provincias->name;
+            if (@$item->ventas->first()->estado === 'activo')
+                @$provincias[] = @$item->ventas->first()->users->provincias->name;
         }
 
         @$resultadoProvincias = array_unique($provincias);
@@ -22,15 +22,15 @@
         
         foreach (@$results2 as $key) {
             if (@$key->estado === 'Nuevo') {
-                if ($key->ventas->first()->estado === 'activo')
+                if (@$key->ventas->first()->estado === 'activo')
                     $nuevos += 1;
             }
             if(@$key->estado === 'Usado'){
-                if ($key->ventas->first()->estado === 'activo')
+                if (@$key->ventas->first()->estado === 'activo')
                     $usados += 1;
             }
             if(@$key->estado === 'Reacondicionado'){
-                if ($key->ventas->first()->estado === 'activo')
+                if (@$key->ventas->first()->estado === 'activo')
                     $reacondicionado += 1;
             }
         }

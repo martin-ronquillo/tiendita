@@ -1,7 +1,7 @@
 @extends('user.settings')
 
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('css/ventas_show.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/respuestas.css') }}">
 @endsection
 
 @section('panel')
@@ -9,7 +9,12 @@
 <div class="col-sm-12 col-md-10 mb-5">
     <div class="row ml-5">
         <div class="col-12 mt-4">
-            <span class="text-secondary" style="font-size: 15px;">Ventas</span> <span style="font-size: 15px;"> > Preguntas</span>
+            <span class="text-secondary" style="font-size: 15px;">
+                Ventas
+            </span> 
+            <span style="font-size: 15px;"> 
+                > Preguntas
+            </span>
             <br>
             <br>
         </div>
@@ -36,115 +41,113 @@
         </div>
         
         <div class="col-sm-12 col-md-12 col-lg-12">
-            {{--Contactos por responder Y Publicaciones--}}
-                <div class="row">
-                    
-                    
 
-                </div>
-        
+            {{--Componente para responder preguntas--}}
+                @livewire('responder-component', ['ventas' => $ventas])
+
         </div>        
 
     </div>
 </div>
 
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-        <div class="modal-body">
+{{--Modal de consejos para responder preguntas--}}
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
 
-            <div class="row" style="padding: 20px;">
+                <div class="row" style="padding: 20px;">
 
-                <div class="col-11 mb-4">
-                    <h3 class="modal-title" id="exampleModalLabel"><b>Consejos para responder mejor tus preguntas</b></h3>
-                </div>
+                    <div class="col-11 mb-4">
+                        <h3 class="modal-title" id="exampleModalLabel"><b>Consejos para responder mejor tus preguntas</b></h3>
+                    </div>
 
-                <div class="col-1">
-                    <button type="button" class="close mt-1" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                {{--Primera--}}
-                <div class="col-1 text-center text-success mt-4">
-                    <i class="fas fa-check"></i>
-                </div>
+                    <div class="col-1">
+                        <button type="button" class="close mt-1" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    {{--Primera--}}
+                    <div class="col-1 text-center text-success mt-4">
+                        <i class="fas fa-check"></i>
+                    </div>
 
-                <div class="col-8 mt-4" style="font-size: 16px;">
-                    <span class="">
-                        Respóndelas en detalle. Una vez que las envíes desaparecerán del listado y no podrás editarlas.
-                    </span>
-                </div>
+                    <div class="col-8 mt-4" style="font-size: 16px;">
+                        <span class="">
+                            Respóndelas en detalle. Una vez que las envíes desaparecerán del listado y no podrás editarlas.
+                        </span>
+                    </div>
 
-                <div class="col-3">
+                    <div class="col-3">
 
-                </div>
-                {{--Segunda--}}
-                <div class="col-1 mt-4 text-center text-success">
-                    <i class="fas fa-check"></i>
-                </div>
+                    </div>
+                    {{--Segunda--}}
+                    <div class="col-1 mt-4 text-center text-success">
+                        <i class="fas fa-check"></i>
+                    </div>
 
-                <div class="col-8 mt-4" style="font-size: 16px;">
-                    <span class="">
-                        Ten siempre un trato respetuoso con la comunidad.
-                    </span>
-                </div>
+                    <div class="col-8 mt-4" style="font-size: 16px;">
+                        <span class="">
+                            Ten siempre un trato respetuoso con la comunidad.
+                        </span>
+                    </div>
 
-                <div class="col-3">
+                    <div class="col-3">
 
-                </div>
-                {{--Tercera--}}
-                <div class="col-1 mt-4 text-center text-danger">
-                    <i class="fas fa-times"></i>
-                </div>
+                    </div>
+                    {{--Tercera--}}
+                    <div class="col-1 mt-4 text-center text-danger">
+                        <i class="fas fa-times"></i>
+                    </div>
 
-                <div class="col-8 mt-4" style="font-size: 16px;">
-                    <span class="">
-                        No ingreses ni solicites datos de contacto, como e-mails, teléfonos, direcciones, links externos y redes sociales.
-                    </span>
-                </div>
+                    <div class="col-8 mt-4" style="font-size: 16px;">
+                        <span class="">
+                            No ingreses ni solicites datos de contacto, como e-mails, teléfonos, direcciones, links externos y redes sociales.
+                        </span>
+                    </div>
 
-                <div class="col-3">
+                    <div class="col-3">
 
-                </div>
-                {{--Cuarta--}}
-                <div class="col-1 mt-4 text-center text-danger">
-                    <i class="fas fa-times"></i>
-                </div>
+                    </div>
+                    {{--Cuarta--}}
+                    <div class="col-1 mt-4 text-center text-danger">
+                        <i class="fas fa-times"></i>
+                    </div>
 
-                <div class="col-8 mt-4" style="font-size: 16px;">
-                    <span class="">
-                        No pidas que te oferten en publicaciones que no sean de Mercado Libre.
-                    </span>
-                </div>
+                    <div class="col-8 mt-4" style="font-size: 16px;">
+                        <span class="">
+                            No pidas que te oferten en publicaciones que no sean de Mercado Libre.
+                        </span>
+                    </div>
 
-                <div class="col-3">
+                    <div class="col-3">
 
-                </div>
-                {{--Quinta--}}
-                <div class="col-1 mt-4 text-center text-danger">
-                    <i class="fas fa-times"></i>
-                </div>
+                    </div>
+                    {{--Quinta--}}
+                    <div class="col-1 mt-4 text-center text-danger">
+                        <i class="fas fa-times"></i>
+                    </div>
 
-                <div class="col-8 mt-4" style="font-size: 16px;">
-                    <span class="">
-                        Está prohibido insinuar a tu comprador que no aceptas Mercado Pago.
-                    </span>
-                </div>
+                    <div class="col-8 mt-4" style="font-size: 16px;">
+                        <span class="">
+                            Está prohibido insinuar a tu comprador que no aceptas Mercado Pago.
+                        </span>
+                    </div>
 
-                <div class="col-3">
+                    <div class="col-3">
 
-                </div>
-                {{--Boton--}}
-                <div class="col-12 mt-5">
-                    <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">Entendido</span>
-                    </button>
+                    </div>
+                    {{--Boton--}}
+                    <div class="col-12 mt-5">
+                        <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">Entendido</span>
+                        </button>
+                    </div>
+
                 </div>
 
             </div>
-
         </div>
     </div>
-  </div>
-</div>
+    </div>
 @endsection

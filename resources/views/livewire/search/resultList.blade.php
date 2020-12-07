@@ -10,14 +10,14 @@
 @if ($i >= 1)
     @foreach ($results as $item)
     
-        @if ($item->ventas->first()->estado === 'activo')
+        @if (@$item->ventas->first()->estado === 'activo')
             @if (@!$provincia || @$provincia === 'n/a')
                 <li class="list-group-item" wire:key="{{ $item->id }}">
                     <div class="row">
 
                         <div class="col-3 img-content text-center">
 
-                            @if ($item->images->first())
+                            @if (@$item->images->first())
                                 <a href="{{ route('productos.show', $item->id) }}">
                                     <img class="ml-3" src="{{ $item->images->first()->url }}" alt="{{ $item->name }}">
                                 </a>

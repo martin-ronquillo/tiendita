@@ -124,15 +124,24 @@ class VentaController extends Controller
     public function show(Venta $venta, $id)
     {
         $ventas = Venta::where('user_id', $id)->get();
-        return view('ventas.show', compact('ventas'));
+        $show_ventas = ' show';
+        $show_compras = '';
+        $show_configuracion = '';
+        $selected5 = 'black';
+
+        return view('ventas.show', compact('ventas', 'show_ventas', 'show_compras', 'show_configuracion', 'selected5'));
     }
 
     public function resumen($id)
     {
         $ventas = Venta::where('user_id', $id)->get();
         $user = User::findOrFail(Auth::user()->id);
+        $show_ventas = ' show';
+        $show_compras = '';
+        $show_configuracion = '';
+        $selected4 = 'black';
 
-        return view('ventas.resumen', compact('ventas', 'user'));
+        return view('ventas.resumen', compact('ventas', 'user', 'show_ventas', 'show_compras', 'show_configuracion', 'selected4'));
     }
 
     /**

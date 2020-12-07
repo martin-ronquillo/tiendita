@@ -42,7 +42,11 @@ class CompraController extends Controller
     public function calificar($compra)
     {
         $compras = Compra::where('id', $compra)->first();
-        return view('compras.calificar', compact('compras'));
+        $show_ventas = '';
+        $show_compras = ' show';
+        $show_configuracion = '';
+
+        return view('compras.calificar', compact('compras', 'show_ventas', 'show_compras', 'show_configuracion'));
     }
 
     /**
@@ -54,7 +58,12 @@ class CompraController extends Controller
     public function show(Compra $compra, $id)
     {
         $compras = Compra::where('user_id', $id)->get();
-        return view('compras.show', compact('compras'));
+        $show_ventas = '';
+        $show_compras = ' show';
+        $show_configuracion = '';
+        $selected1 = 'black';
+
+        return view('compras.show', compact('compras', 'show_ventas', 'show_compras', 'show_configuracion', 'selected1'));
     }
 
     /**

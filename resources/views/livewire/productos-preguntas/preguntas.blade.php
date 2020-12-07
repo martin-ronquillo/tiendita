@@ -6,17 +6,16 @@
 
         <div class="p-y-r mb-4">
             
-            <i class="far fa-comment-dots mr-2"></i>{{ @$item->pregunta }}
-            {{--
-            @if (@!$item->respuestas)
-                <button 
-                class="ml-2 no-btn reply" 
-                onClick="document.getElementById('oculto').style.display='inline'"
-                title="Responder a esta pregunta">
-                    <i class="fas fa-reply text-primary"></i>
-                </button>
+            @if (substr($item->pregunta, -1) == '?')
+            
+                <i class="far fa-comment-dots mr-2"></i>{{ @$item->pregunta }}
+                
+            @else
+                
+                <i class="far fa-comment-dots mr-2"></i>{{ @$item->pregunta }}?
+
             @endif
-            --}}
+
             <a href="#" class="ml-2">
                 <i class="text-primary report">Denunciar</i>
             </a>
@@ -31,10 +30,6 @@
                         <i class="text-primary report">Denunciar</i>
                     </a>
                 </p>
-            {{--@else
-                @if (@$producto->ventas->first()->users->id === @Auth::user()->id)
-                    @include('livewire.productos-preguntas.responder')
-                @endif--}}
             @endif
 
         </div>

@@ -128,7 +128,7 @@
                             </div>
 
                             @if ($tot_preguntas >= 1)
-                                <a href="" class="no-link-card">
+                                <a href="{{ route('preguntas.responder', Auth::user()->id) }}" class="no-link-card">
                                     <div class="card-footer" style="background-color: transparent;">
                                         <div class="row">
                                             <div class="col-8">

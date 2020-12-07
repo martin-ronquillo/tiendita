@@ -28,13 +28,13 @@
                             </h5>
                         </div>
                   
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div id="collapseOne" class="collapse{{ $show_compras }}" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body" style="padding-left: 53px; margin-top: -20px;">
-                                <a href="{{ route('compras.show', Auth::user()->id) }}" class="no-link">Compras</a>
+                                <a href="{{ route('compras.show', Auth::user()->id) }}" class="no-link" style="color: {{ @$selected1 }};">Compras</a>
                                 <br>
-                                <a href="{{ route('preguntas.show', Auth::user()->id) }}" class="no-link">Preguntas</a>
+                                <a href="{{ route('preguntas.show', Auth::user()->id) }}" class="no-link" style="color: {{ @$selected2 }};">Preguntas</a>
                                 <br>
-                                <a href="{{ route('favoritos.show', Auth::user()->id) }}" class="no-link">Favoritos</a>
+                                <a href="{{ route('favoritos.show', Auth::user()->id) }}" class="no-link" style="color: {{ @$selected3 }};">Favoritos</a>
                             </div>
                         </div>
                     </div>
@@ -47,13 +47,13 @@
                             </button>
                             </h5>
                         </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div id="collapseTwo" class="collapse{{ $show_ventas }}" aria-labelledby="headingTwo" data-parent="#accordionExample">
                             <div class="card-body" style="padding-left: 53px; margin-top: -20px;">
-                                <a href="{{ route('ventas.resumen', Auth::user()->id) }}" class="no-link">Resumen</a>
+                                <a href="{{ route('ventas.resumen', Auth::user()->id) }}" class="no-link" style="color: {{ @$selected4 }};">Resumen</a>
                                 <br>
-                                <a href="{{ route('ventas.show', Auth::user()->id) }}" class="no-link">Publicaciones</a>
+                                <a href="{{ route('ventas.show', Auth::user()->id) }}" class="no-link" style="color: {{ @$selected5 }};">Publicaciones</a>
                                 <br>
-                                <a href="{{ route('preguntas.responder', Auth::user()->id) }}" class="no-link">Preguntas</a>
+                                <a href="{{ route('preguntas.responder', Auth::user()->id) }}" class="no-link" style="color: {{ @$selected6 }};">Preguntas</a>
                                 <br>
                                 <a href="" class="no-link">Ventas</a>
                             </div>
@@ -68,11 +68,11 @@
                             </button>
                             </h5>
                         </div>
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div id="collapseThree" class="collapse{{ $show_configuracion }}" aria-labelledby="headingThree" data-parent="#accordionExample">
                             <div class="card-body" style="padding-left: 53px; margin-top: -20px;">
-                                <a href="" class="no-link">Mis datos</a>
+                                <a href="" class="no-link" style="color: {{ @$selected7 }};">Mis datos</a>
                                 <br>
-                                <a href="" class="no-link">Seguridad</a>
+                                <a href="" class="no-link" style="color: {{ @$selected8 }};">Seguridad</a>
                             </div>
                         </div>
                     </div>

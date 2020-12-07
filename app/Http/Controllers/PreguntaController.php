@@ -48,13 +48,23 @@ class PreguntaController extends Controller
     public function show(Pregunta $pregunta, $id)
     {
         $preguntas = Pregunta::where('user_id', $id)->get();
-        return view('preguntas.show', compact('preguntas'));
+        $show_ventas = '';
+        $show_compras = ' show';
+        $show_configuracion = '';
+        $selected2 = 'black';
+
+        return view('preguntas.show', compact('preguntas', 'show_ventas', 'show_compras', 'show_configuracion', 'selected2'));
     }
 
     public function responder($id)
     {
         $ventas = Venta::where('user_id', $id)->get();
-        return view('preguntas.responder', compact('ventas'));
+        $show_ventas = ' show';
+        $show_compras = '';
+        $show_configuracion = '';
+        $selected6 = 'black';
+
+        return view('preguntas.responder', compact('ventas', 'show_ventas', 'show_compras', 'show_configuracion', 'selected6'));
     }
 
     /**

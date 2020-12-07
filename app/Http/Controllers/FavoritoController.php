@@ -47,7 +47,12 @@ class FavoritoController extends Controller
     public function show(Favorito $favorito, $id)
     {
         $favoritos = Favorito::where('user_id', $id)->get();
-        return view('favoritos.show', compact('favoritos'));
+        $show_ventas = '';
+        $show_compras = ' show';
+        $show_configuracion = '';
+        $selected3 = 'black';
+
+        return view('favoritos.show', compact('favoritos', 'show_ventas', 'show_compras', 'show_configuracion', 'selected3'));
     }
 
     /**
