@@ -144,6 +144,22 @@ class VentaController extends Controller
         return view('ventas.resumen', compact('ventas', 'user', 'show_ventas', 'show_compras', 'show_configuracion', 'selected4'));
     }
 
+    public function ventas($id)
+    {
+        $ventas = Venta::where('user_id', $id)->get();
+        $show_ventas = ' show';
+        $show_compras = '';
+        $show_configuracion = '';
+        $selected7 = 'black';
+
+        return view('ventas.ventas', compact('ventas', 'show_ventas', 'show_compras', 'show_configuracion', 'selected7'));
+    }
+
+    public function detalle(Venta $venta)
+    {
+        return view('ventas.detalle', compact('venta'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
