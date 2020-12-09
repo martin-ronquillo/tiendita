@@ -156,6 +156,22 @@
         </nav>
         
         <!-- Mensajes de notificacion -->
+            @if(isset($success))
+                <div style="z-index: 99 !important">
+                    <div class="container mt-5">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    {{ $success }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
             @if(isset($danger))
                 <div style="z-index: 99 !important">
                     <div class="container mt-5">

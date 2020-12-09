@@ -66,4 +66,26 @@ Route::middleware(['auth'])->group(function(){
     //Favoritos
         Route::get('favoritos/{id}', 'FavoritoController@show')->name('favoritos.show');
 
+    //Users
+        Route::get('users/datos/{user}', 'UserController@datos')->name('users.datos');
+        Route::get('users/seguridad/{user}', 'UserController@seguridad')->name('users.seguridad');
+
+        Route::get('users/edit/email/{user}', 'UserController@editEmail')->name('users.email');
+        Route::put('users/edit/email/', 'UserController@updateEmail')->name('users.update.email');
+
+        Route::get('users/edit/clave/{user}', 'UserController@editClave')->name('users.clave');
+        Route::put('users/edit/clave/', 'UserController@updateClave')->name('users.update.clave');
+
+        Route::get('users/edit/name/{user}', 'UserController@editName')->name('users.name');
+        Route::put('users/edit/name/', 'UserController@updateName')->name('users.update.name');
+
+        Route::get('users/edit/cedula/{user}', 'UserController@editCedula')->name('users.cedula');
+        Route::put('users/edit/cedula/', 'UserController@updateCedula')->name('users.update.cedula');
+
+        Route::get('users/edit/telefono/{user}', 'UserController@editTelefono')->name('users.telefono');
+        Route::put('users/edit/telefono/', 'UserController@updateTelefono')->name('users.update.telefono');
+
+        Route::get('users/edit/direccion/{user}', 'UserController@editDireccion')->name('users.direccion');
+        Route::put('users/edit/direccion/', 'UserController@updateDireccion')->name('users.update.direccion');
+
 });

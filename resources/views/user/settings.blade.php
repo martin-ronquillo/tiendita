@@ -70,9 +70,9 @@
                         </div>
                         <div id="collapseThree" class="collapse{{ $show_configuracion }}" aria-labelledby="headingThree" data-parent="#accordionExample">
                             <div class="card-body" style="padding-left: 53px; margin-top: -20px;">
-                                <a href="" class="no-link" style="color: {{ @$selected8 }};">Mis datos</a>
+                                <a href="{{ route('users.datos', Auth::user()->id) }}" class="no-link" style="color: {{ @$selected8 }};">Mis datos</a>
                                 <br>
-                                <a href="" class="no-link" style="color: {{ @$selected9 }};">Seguridad</a>
+                                {{--<a href="{{ route('users.seguridad', Auth::user()->id) }}" class="no-link" style="color: {{ @$selected9 }};">Seguridad</a>--}}
                             </div>
                         </div>
                     </div>
