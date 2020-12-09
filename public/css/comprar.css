@@ -47,3 +47,36 @@
     border-left: none;
     border-right: none;
 }
+
+.no-link {
+    color: rgb(128, 128, 128);
+    text-decoration: none;
+}
+
+.no-link:link {
+    color: rgb(128, 128, 128);
+    text-decoration: none;
+}
+
+
+/* visited link */
+
+.no-link:visited {
+    text-decoration: none;
+}
+
+
+/* mouse over link */
+
+.no-link:hover {
+    color: rgba(4, 0, 255, 0.822);
+    text-decoration: none;
+}
+
+
+/* selected link */
+
+.no-link:active {
+    color: black;
+    text-decoration: none;
+}

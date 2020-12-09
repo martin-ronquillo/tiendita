@@ -103,7 +103,7 @@
                     <div class="card-body" style="background-color: transparent;">
                         <div class="row">
 
-                            <div class="col-3 mt-3">
+                            <div class="col-2 mt-5">
                                 
                                 <div class="img-content-compras text-center">
                                     <img class="img-compras" src="{{ $venta->productos->images->first()->url }}" alt="{{ $venta->productos->name }}">
@@ -111,12 +111,12 @@
 
                             </div>
 
-                            <div class="col-9 mt-2">
+                            <div class="col-6 mt-2">
                                 <span class="text-secondary" style="font-size: 10px;"> 
                                     #{{ $venta->productos->id }} 
                                 </span>
                                 <p class="" style="font-size: 17px;">
-                                    <a href="" class="text-dark no-link">
+                                    <a href="{{ route('productos.show', $venta->productos->id) }}" class="text-dark no-link">
                                         {{ $venta->productos->name }}
                                     </a>
                                 </p>
@@ -131,11 +131,65 @@
                                 </span>
                             </div>
 
+                            <div class="col-2 mt-5">
+                                <span class="text-secondary">
+                                    @foreach ($venta->transaccions as $transaccion)
+                                        {{ $transaccion->compras->cantidad }} u.
+                                    @endforeach
+                                </span>
+                            </div>
+
                         </div>
                     </div>
 
                 </div>
 
+            </div>
+
+            <div class="col-sm-12 col-md-12 col-lg-4" style="margin-top: -16px;">
+                <ul class="lista w-100 h-100">
+                    <li class="lista-item h-100" style="background-color: rgba(192, 192, 192, 0.178); border: transparent;">
+                        <div class="align-self-center mt-5">
+                            <p class="mt-3"><b>Detalle de cobro</b></p>
+
+                            <br>
+                            <hr>
+                            
+                            @foreach ($venta->transaccions as $transaccion)
+
+                                <div class="row">
+                                    <div class="col-8 text-left">
+                                        <p>Producto</p>
+                                        <p>x {{ $transaccion->compras->cantidad }} Unidades</p>
+                                        <p class="mt-2">Envio</p>
+                                    </div>
+                                    <div class="col-2 text-right">
+                                        <p class="text-secondary">U$S{{ $venta->productos->precio }}</p>
+                                        <p class="text-secondary">U$S{{ $venta->productos->precio * $transaccion->compras->cantidad}}</p>
+                                        @if (@$venta->precio_envio)
+                                            <p class="text-secondary">U$S{{ $venta->precio_envio }}</p>
+                                        @else
+                                            <p class="text-secondary">---</p>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <div class="row">
+                                    <div class="col-8 text-left">
+                                        <b><p>Total</p></b>
+                                    </div>
+                                    <div class="col-2 text-right">
+                                        <b><p class="text-secondary">U$S{{ $venta->productos->precio * $transaccion->compras->cantidad + $venta->precio_envio }}</p></b>
+                                    </div>
+                                </div>
+                            
+                            @endforeach
+                            
+                        </div>
+                    </li>
+                </ul>
             </div>
 
         </div>
