@@ -63,7 +63,12 @@ class OpinionController extends Controller
 
         $transaccion->save();
 
-        return view('compras.show', compact('compras'));
+        $show_ventas = '';
+        $show_compras = ' show';
+        $show_configuracion = '';
+        $selected1 = 'black';
+
+        return view('compras.show', compact('compras', 'show_ventas', 'show_compras', 'show_configuracion', 'selected1'));
     }
 
     /**

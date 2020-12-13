@@ -175,3 +175,165 @@
     
     </li>
 </ul>
+
+@if (@$producto->ventas->first()->users->opinions)
+
+    <ul class="reputation-thermometer w-100">
+
+        <li class="reputation-data w-100">
+
+            <button type="button" class="no-btn mt-2" data-toggle="modal" data-target=".bd-example-modal-lg" style="color: rgb(0, 132, 255);">
+                Ver opiniones sobre el vendedor
+            </button>
+
+        </li>
+
+    </ul>
+
+    {{--Modal de opiniones--}}
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body">
+
+                        <div class="row" style="padding: 20px;">
+
+                            <div class="col-11 mb-4">
+                                <h3 class="modal-title" id="exampleModalLabel"><b>Opiniones sobre el vendedor</b></h3>
+                            </div>
+
+                            <div class="col-1">
+                                <button type="button" class="close mt-1" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            {{--Primera--}}
+
+                            <div class="col-12">
+                                
+                                <ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color: transparent;">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Todas</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Positivas</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Neutrales</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="negativas-tab" data-toggle="tab" href="#negativas" role="tab" aria-controls="negativas" aria-selected="false">Negativas</a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <br>
+                                        <br>
+                                        @foreach (@$producto->ventas->first()->users->opinions as $opinion)
+
+                                            @if (@$opinion->tipo == 'Positivo')
+                                                <p>
+                                                    <i class="far fa-check-circle mt-2 mr-2 text-success"></i>
+                                                    {{ @$opinion->opinion }}
+                                                    <br>
+                                                    <em class="text-secondary ml-4" style="font-size: 11px;">
+                                                    {{ @App\User::where('id', $opinion->aporta_id)->first()->name }} {{ @App\User::where('id', $opinion->aporta_id)->first()->apellido_pater }}... {{ @$opinion->created_at }}
+                                                    </em>
+                                                </p>
+                                            @endif
+                                            @if (@$opinion->tipo == 'Negativo')
+                                                <p>
+                                                    <i class="far fa-times-circle mt-2 mr-2 text-danger"></i>
+                                                    {{ @$opinion->opinion }}
+                                                    <br>
+                                                    <em class="text-secondary ml-4" style="font-size: 11px;">
+                                                    {{ @App\User::where('id', $opinion->aporta_id)->first()->name }} {{ @App\User::where('id', $opinion->aporta_id)->first()->apellido_pater }}... {{ @$opinion->created_at }}
+                                                    </em>
+                                                </p>
+                                            @endif
+                                            @if (@$opinion->tipo == 'Neutral')
+                                                <p>
+                                                    <i class="far fa-dot-circle mt-2 mr-2 text-secondary"></i>
+                                                    {{ @$opinion->opinion }}
+                                                    <br>
+                                                    <em class="text-secondary ml-4" style="font-size: 11px;">
+                                                    {{ @App\User::where('id', $opinion->aporta_id)->first()->name }} {{ @App\User::where('id', $opinion->aporta_id)->first()->apellido_pater }}... {{ @$opinion->created_at }}
+                                                    </em>
+                                                </p>
+                                            @endif
+
+                                        @endforeach
+                                    </div>
+                                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                        <br>
+                                        <br>
+                                        
+                                        @foreach (@$producto->ventas->first()->users->opinions as $opinion)
+
+                                            @if (@$opinion->tipo == 'Positivo')
+                                                <p>
+                                                    <i class="far fa-check-circle mt-2 mr-2 text-success"></i>
+                                                    {{ @$opinion->opinion }}
+                                                    <br>
+                                                    <em class="text-secondary ml-4" style="font-size: 11px;">
+                                                    {{ @App\User::where('id', $opinion->aporta_id)->first()->name }} {{ @App\User::where('id', $opinion->aporta_id)->first()->apellido_pater }}... {{ @$opinion->created_at }}
+                                                    </em>
+                                                </p>
+                                            @endif
+
+                                        @endforeach
+
+                                    </div>
+                                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                                        <br>
+                                        <br>
+                                        
+                                        @foreach (@$producto->ventas->first()->users->opinions as $opinion)
+
+                                            @if (@$opinion->tipo == 'Negativo')
+                                                <p>
+                                                    <i class="far fa-times-circle mt-2 mr-2 text-danger"></i>
+                                                    {{ @$opinion->opinion }}
+                                                    <br>
+                                                    <em class="text-secondary ml-4" style="font-size: 11px;">
+                                                    {{ @App\User::where('id', $opinion->aporta_id)->first()->name }} {{ @App\User::where('id', $opinion->aporta_id)->first()->apellido_pater }}... {{ @$opinion->created_at }}
+                                                    </em>
+                                                </p>
+                                            @endif
+
+                                        @endforeach
+
+                                    </div>
+                                    <div class="tab-pane fade" id="negativas" role="tabpanel" aria-labelledby="negativas-tab">
+                                        <br>
+                                        <br>
+                                        
+                                        @foreach (@$producto->ventas->first()->users->opinions as $opinion)
+
+                                            @if (@$opinion->tipo == 'Neutral')
+                                                <p>
+                                                    <i class="far fa-dot-circle mt-2 mr-2 text-secondary"></i>
+                                                    {{ @$opinion->opinion }}
+                                                    <br>
+                                                    <em class="text-secondary ml-4" style="font-size: 11px;">
+                                                    {{ @App\User::where('id', $opinion->aporta_id)->first()->name }} {{ @App\User::where('id', $opinion->aporta_id)->first()->apellido_pater }}... {{ @$opinion->created_at }}
+                                                    </em>
+                                                </p>
+                                            @endif
+
+                                        @endforeach
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+@endif
