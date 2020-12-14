@@ -160,6 +160,17 @@ class VentaController extends Controller
         return view('ventas.detalle', compact('venta'));
     }
 
+    public function progresar()
+    {
+        $user = User::findOrFail(Auth::user()->id);
+
+        $show_ventas = ' show';
+        $show_compras = '';
+        $show_configuracion = '';
+
+        return view('ventas.progresar_ventas', compact('user', 'show_ventas', 'show_compras', 'show_configuracion'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

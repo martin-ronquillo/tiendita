@@ -46,6 +46,8 @@ Route::middleware(['auth'])->group(function(){
         Route::get('ventas/ventas/{id}', 'VentaController@ventas')->name('ventas.ventas');
         //Detalle ventas realizadas
         Route::get('ventas/ventas-detalle/{venta}', 'VentaController@detalle')->name('ventas.detalle');
+        //Progresar como vendedor
+        Route::get('ventas/progreso-ventas/progresar', 'VentaController@progresar')->name('ventas.progresar');
     
     //Comprar
         Route::get('compras/{id}', 'CompraController@show')->name('compras.show');

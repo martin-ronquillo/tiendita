@@ -181,7 +181,7 @@
                                 <div class="card-body">
                                     <span class="text-secondary">No tienes tareas de publicaciones.</span>
                                 </div>
-                                <a href="" class="no-link-card">
+                                <a href="{{ route('ventas.show', Auth::user()->id) }}" class="no-link-card">
                                     <div class="card-footer" style="background-color: transparent;">
                                         <div class="row">
                                             <div class="col-10 text-primary">
@@ -222,7 +222,7 @@
                                     <span class="text-secondary">Tienes {{ $ventas_inconclusas }} ventas no concretadas por tus compradores.</span>
                                 </div>
 
-                                <a href="" class="no-link-card">
+                                <a href="{{ route('ventas.ventas', Auth::user()->id) }}" class="no-link-card">
                                     <div class="card-footer" style="background-color: transparent;">
                                         <div class="row">
                                             <div class="col-10 text-primary">
@@ -241,7 +241,7 @@
                                     <span class="text-secondary">No tienes ventas por preparar.</span>
                                 </div>
 
-                                <a href="" class="no-link-card">
+                                <a href="{{ route('ventas.ventas', Auth::user()->id) }}" class="no-link-card">
                                     <div class="card-footer" style="background-color: transparent;">
                                         <div class="row">
                                             <div class="col-10 text-primary">
@@ -268,7 +268,7 @@
                                 <h5><b>Crece como vendedor</b></h5>
                             </div>
 
-                            <a href="" class="no-link-card">
+                            <a href="{{ route('users.datos', Auth::user()->id) }}" class="no-link-card">
                                 <div class="card-footer" style="background-color: transparent;">
                                     <div class="row">
                                         <div class="col-6 text-primary">
@@ -289,7 +289,7 @@
                                 </div>
                             </a>
 
-                            <a href="" class="no-link-card">
+                            <a href="{{ route('ventas.progresar') }}" class="no-link-card">
                                 <div class="card-footer" style="background-color: transparent;">
                                     <div class="row">
                                         <div class="col-8 text-primary">
