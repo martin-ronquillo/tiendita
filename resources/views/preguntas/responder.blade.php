@@ -43,7 +43,39 @@
         <div class="col-sm-12 col-md-12 col-lg-12">
 
             {{--Componente para responder preguntas--}}
-                @livewire('responder-component', ['ventas' => $ventas])
+                @php
+                    $existen_preguntas = 0;
+                @endphp
+
+                @foreach ($ventas as $venta)
+                    @foreach ($venta->productos->preguntas as $preguntas)
+                        @if (!$preguntas->respuestas)
+
+                            @php
+                                $existen_preguntas++;
+                            @endphp
+
+                        @endif
+                    @endforeach
+                @endforeach
+
+                @if (@$existen_preguntas >= 1)
+
+                    @livewire('responder-component', ['ventas' => $ventas])
+
+                @else
+
+                    <div class="card no-border mt-4">
+
+                        <div class="card-body" style="background-color: transparent;">
+                    
+                            <h5 class="mt-2 ml-5 mr-5">Aun no has recibido preguntas en tus publicaciones, <a href="{{ route('ventas.create') }}">publica algo</a> para tener mas suerte...</h5>
+                        
+                        <div>
+
+                    </div>
+                    
+                @endif
 
         </div>        
 

@@ -282,7 +282,7 @@
                                         <div class="col-12 text-right text-primary">
                                             <div class="progress mt-2">
                                                 <div class="progress-bar bg-success" role="progressbar" style="width: {{ round($user_profile) }}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div> 
+                                            </div>
                                             <br>
                                         </div>
                                     </div>

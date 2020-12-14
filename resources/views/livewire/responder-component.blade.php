@@ -3,7 +3,7 @@
     $empty = 1;
 @endphp
 <div>
-    {{--Recorre el array de ventas con preguntas sin responder--}}
+    {{--Recorre el array de ventas con preguntas sin responder, el array viene desde el componente--}}
     @foreach ($preguntaVentas as $item)
         {{--Recorre las ventas--}}
         @foreach ($ventas as $venta)
@@ -19,10 +19,6 @@
 
                             @foreach ($venta->productos->preguntas as $pregunta)
 
-                                @if ($pregunta->respuestas)
-
-                                @endif
-
                                 @if (!$pregunta->respuestas)
                                 
                                     @include('livewire.responder.preguntas')
@@ -32,6 +28,7 @@
                                     @php
                                         $empty++;
                                     @endphp
+
                                 @endif
 
                             @endforeach
