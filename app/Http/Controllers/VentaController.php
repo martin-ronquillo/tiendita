@@ -179,7 +179,7 @@ class VentaController extends Controller
      */
     public function edit(Venta $venta)
     {
-        //
+        return view('ventas.edit', compact('venta'));
     }
 
     /**
@@ -191,7 +191,23 @@ class VentaController extends Controller
      */
     public function update(Request $request, Venta $venta)
     {
-        //
+        $venta->productos->name = $request->nombre_producto;
+        $venta->productos->caracteristicas = $request->caracteristicas;
+        $venta->productos->descripcion = $request->descripcion;
+        $venta->productos->precio = $request->precio;
+        $venta->productos->stock = $request->stock;
+        $venta->productos->estado = $request->condicion;
+        $venta->productos->categoria_id = $request->categoria;
+
+        $venta->pago_id = $request->pago;
+        $venta->envio_id = $request->envio;
+        $venta->precio_envio = $request->precio_envio;
+
+        $venta->save();
+
+        $producto = Producto::findOrFail($venta->productos->id);
+
+        return view('productos.show', compact('producto'));
     }
 
     /**

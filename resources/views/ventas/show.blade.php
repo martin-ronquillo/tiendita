@@ -32,7 +32,11 @@
                                             <div class="col-3">
                                                 
                                                 <div class="img-content-compras text-center">
-                                                    <img class="img-compras" src="{{ $venta->productos->images->first()->url }}" alt="{{ $venta->productos->name }}">
+                                                    @if (@$venta->productos->images->first())
+                                                        <img class="img-compras" src="{{ @$venta->productos->images->first()->url }}" alt="{{ $venta->productos->name }}">
+                                                    @else
+                                                        <img class="img-compras" src="{{ asset('images/no-image.png') }}" alt="no-image">
+                                                    @endif
                                                 </div>
 
                                             </div>
@@ -42,7 +46,7 @@
                                                     #{{ $venta->productos->id }} 
                                                 </span>
                                                 <p class="" style="font-size: 17px;">
-                                                    <a href="" class="text-dark no-link">
+                                                    <a href="{{ route('ventas.edit', $venta->id) }}" class="text-dark no-link">
                                                         {{ $venta->productos->name }}
                                                     </a>
                                                 </p>

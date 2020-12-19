@@ -121,7 +121,11 @@
                                                     <div class="col-3">
                                                         
                                                         <div class="img-content-compras text-center">
-                                                            <img class="img-compras" src="{{ $venta->productos->images->first()->url }}" alt="{{ $venta->productos->name }}">
+                                                            @if (@$venta->productos->images->first())
+                                                                <img class="img-compras" src="{{ $venta->productos->images->first()->url }}" alt="{{ $venta->productos->name }}">
+                                                            @else
+                                                                <img class="img-compras" src="{{ asset('images/no-image.png') }}" alt="no-image">
+                                                            @endif
                                                         </div>
             
                                                     </div>
@@ -131,18 +135,22 @@
                                                             #{{ $venta->productos->id }} 
                                                         </span>
                                                         <p class="" style="font-size: 17px;">
-                                                            <a href="" class="text-dark no-link">
+                                                            <a href="{{ route('ventas.edit', $venta->id) }}" class="text-dark no-link">
                                                                 {{ $venta->productos->name }}
                                                             </a>
                                                         </p>
                                                         <span class="text-secondary" style="font-size: 13px;">
-                                                            {{ $venta->productos->stock }} Unidades | {{ $venta->transaccions->count() }} Ventas
+                                                            @foreach ($venta->transaccions as $transaccion)
+                                                                {{ $transaccion->compras->cantidad }} Unidades
+                                                            @endforeach
                                                         </span>
                                                     </div>
             
                                                     <div class="col-2 mt-5">
                                                         <span class="text-secondary">
-                                                            U$S{{ $venta->productos->precio }}
+                                                            @foreach ($venta->transaccions as $transaccion)
+                                                                U$D{{ $venta->productos->precio * $transaccion->compras->cantidad + $venta->precio_envio }}
+                                                            @endforeach
                                                         </span>
                                                     </div>
             

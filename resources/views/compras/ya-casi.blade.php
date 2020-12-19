@@ -32,7 +32,10 @@
                     <p class="card-text text-secondary mt-4">
                         <span class="text-secondary">{{ $producto->ventas->first()->users->name }} {{ $producto->ventas->first()->users->apellido_pater }}</span>
                         <br>
-                        <span class="text-secondary">{{ $producto->ventas->first()->users->tlf }}</span>
+                        @if ($producto->ventas->first()->users->tlf !== NULL)
+                            <span class="text-dark">{{ $producto->ventas->first()->users->tlf }}</span> | 
+                        @endif
+                        <span class="text-dark">{{ $producto->ventas->first()->users->email }}</span>
                     </p>
                     <a href="{{ route('home') }}" class="mt-3">Seguir comprando!</a>
                 </div>

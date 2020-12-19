@@ -59,7 +59,11 @@
                             <div class="col-12">
 
                                 <div class="img-content-compras">
-                                    <img class="img-compras" src="{{ $consulta->images->first()->url }}" alt="{{ $consulta->name }}">
+                                    @if (@$consulta->images->first())
+                                        <img class="img-compras" src="{{ $consulta->images->first()->url }}" alt="{{ $consulta->name }}">
+                                    @else
+                                        <img class="img-compras" src="{{ asset('images/no-image.png') }}" alt="no-image">
+                                    @endif
                                 
 
                                     <a href="{{ route('productos.show', $item->id) }}">&nbsp;{{ $item->name }}</a>

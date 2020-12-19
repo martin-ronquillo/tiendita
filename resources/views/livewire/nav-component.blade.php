@@ -21,13 +21,13 @@
 
                     @if ($item->productos->images->first())
                     
-                        <div class="col-3 center img-content">
+                        <div class="col-3 center img-content-nav-fav">
                             <img class="ml-2" src="{{ $item->productos->images->first()->url }}" alt="{{ $item->productos->name }}">
                         </div>
 
                     @else
 
-                        <div class="col-3 center img-content">
+                        <div class="col-3 center img-content-nav-fav">
                             <img class="ml-2" src="{{ asset('images/no-image.png') }}" alt="{{ $item->productos->name }}">
                         </div>
 

@@ -31,7 +31,8 @@ Route::middleware(['auth'])->group(function(){
     //Vender
         //Crear la venta y agregarle imagenes
         Route::get('vender', 'VentaController@create')->name('ventas.create');
-        Route::get('vender/{producto}/edit', 'VentaController@edit')->name('ventas.edit');
+        Route::get('vender/{venta}/edit', 'VentaController@edit')->name('ventas.edit');
+        Route::put('update{venta}', 'VentaController@update')->name('ventas.update');
         Route::get('vender/images/{producto}', 'VentaController@images')->name('ventas.images');
         //Guardar el form de ventas y de imagenes
         Route::post('vender', 'VentaController@store')->name('ventas.store');

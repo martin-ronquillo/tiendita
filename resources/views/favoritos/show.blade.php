@@ -28,7 +28,11 @@
             
                                         <div class="col-3">
                                             <div class="img-content-compras text-center">
-                                                <img class="img-compras" src="{{ $item->productos->images->first()->url }}" alt="{{ $item->productos->name }}">
+                                                @if (@$item->productos->images->first())
+                                                    <img class="img-compras" src="{{ $item->productos->images->first()->url }}" alt="{{ $item->productos->name }}">
+                                                @else
+                                                    <img class="img-compras" src="{{ asset('images/no-image.png') }}" alt="no-image">
+                                                @endif
                                             </div>
                                         </div>
             
@@ -52,7 +56,7 @@
 
                     @else
                         
-                        <h5 class="mt-4 ml-5 mr-5">Aun no has agregado ningun favorito...  <a href="{{ route('home') }}">¡Empecemos con eso!</a></h5>
+                        <h5 class="mt-3 ml-5 mr-5">Aun no has agregado ningun favorito...  <a href="{{ route('home') }}">¡Empecemos con eso!</a></h5>
 
                     @endif
 

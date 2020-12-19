@@ -1,5 +1,14 @@
 {{--Logica--}}
     @php
+        //Cuenta la cantidad de resultados de la busqueda
+        $cantidad_resultados = 0;
+
+        foreach (@$results as $resultado) {
+            if (@$resultado->ventas->first()->estado === 'activo') {
+                @$cantidad_resultados++;
+            }
+        }
+
         //Selecciona todas las provincias de la que provienen los productos y
         //las filtra para que no se repitan
         $provincias = [];
@@ -47,7 +56,7 @@
 
 <h1 class="text-capitalize">{{ $busquedaInfo }}</h1>
 
-<em class="ml-auto text-secondary">{{ $results->count() }} resultados</em>
+<em class="ml-auto text-secondary">{{ $cantidad_resultados }} resultados</em>
 
 {{--Informacion sobre los filtros seleccionados--}}
     @if (@$condicion !== Null && @$condicion !== 'n/a' || @$provincia !== Null && @$provincia !== 'n/a')

@@ -39,7 +39,17 @@ class TransaccionController extends Controller
     public function revisaMetodos(Request $request){
 
         $producto = Producto::where('id', $request->producto)->first();
-        $cantidad = $request->cantidad;
+
+        if ($request->cantidad <= 0) {
+            return back();
+        }
+
+        if ($producto->stock >= $request->cantidad) {
+            $cantidad = $request->cantidad;
+        } else {
+            $cantidad = $producto->stock;
+        }
+        
 
         return view('compras.revisa-confirma', compact('producto', 'cantidad'));
     }

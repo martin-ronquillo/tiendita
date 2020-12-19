@@ -40,7 +40,11 @@
                     <div class="card-body" style="background-color: rgba(128, 128, 128, 0.096); height: 200px;">
 
                         <div class="img-content-compras text-center">
-                            <img class="img-compras" src="{{ $compras->productos->images->first()->url }}" alt="{{ $compras->productos->name }}">
+                            @if (@$compras->productos->images->first())
+                                <img class="img-compras" src="{{ $compras->productos->images->first()->url }}" alt="{{ $compras->productos->name }}">
+                            @else
+                                <img class="img-compras" src="{{ asset('images/no-image.png') }}" alt="no-image">
+                            @endif
                             <br>
                             <a href="{{ route('productos.show', $compras->productos->id) }}" target="_blank">{{ $compras->productos->name }}</a>
                             <br>

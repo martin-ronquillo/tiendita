@@ -51,7 +51,11 @@
                                         <div class="col-2">
 
                                             <div class="img-content-compras text-center">
-                                                <img class="img-compras" src="{{ $item->productos->images->first()->url }}" alt="{{ $item->productos->name }}">
+                                                @if (@$item->productos->images->first())
+                                                    <img class="img-compras" src="{{ $item->productos->images->first()->url }}" alt="{{ $item->productos->name }}">
+                                                @else
+                                                    <img class="img-compras" src="{{ asset('images/no-image.png') }}" alt="no-image">
+                                                @endif
                                             </div>
 
                                         </div>

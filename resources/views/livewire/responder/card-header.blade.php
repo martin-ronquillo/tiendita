@@ -4,7 +4,11 @@
         <div class="col-2">
             
             <div class="img-content-compras text-center mt-1">
-                <img class="img-compras" src="{{ $venta->productos->images->first()->url }}" alt="{{ $venta->productos->name }}">
+                @if (@$venta->productos->images->first())
+                    <img class="img-compras" src="{{ $venta->productos->images->first()->url }}" alt="{{ $venta->productos->name }}">
+                @else
+                    <img class="img-compras" src="{{ asset('images/no-image.png') }}" alt="no-image">
+                @endif
             </div>
 
         </div>
